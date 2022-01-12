@@ -1,0 +1,133 @@
+<!-- Adding the same root's ID for view binding as other layout configurations -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="demo_name"
+            type="String" />
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/github_btn"
+                style="@style/home_button"
+                app:bootstrapBrand="danger"
+                android:onClick="@{onClickListener}"
+                app:bootstrapSize="xl"
+                app:bootstrapText="{fa-github} Fork me on Github {fa-heart}"
+                app:showOutline="false"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_bootstrap_button"
+                style="@style/home_button"
+                android:text="BootstrapButton"
+                android:onClick="@{onClickListener}"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_bootstrap_btn_group"
+                style="@style/home_button"
+                android:text="BootstrapButtonGroup"
+                android:onClick="@{onClickListener}"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_fontawesometext"
+                style="@style/home_button"
+                android:text="AwesomeTextView"
+                android:onClick="@{onClickListener}"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_bootstrap_label"
+                style="@style/home_button"
+                android:text="BootstrapLabel"
+                android:onClick="@{onClickListener}"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_bootstrap_progress"
+                style="@style/home_button"
+                android:text="BootstrapProgressBar"
+                android:onClick="@{onClickListener}"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_bootstrap_progress_group"
+                style="@style/home_button"
+                android:text="BootstrapProgressBarGroup"
+                android:onClick="@{onClickListener}"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_bootstrap_cricle_thumbnail"
+                style="@style/home_button"
+                android:onClick="@{onClickListener}"
+                android:text="BootstrapCircleThumbnail"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_bootstrap_thumbnail"
+                style="@style/home_button"
+                android:text="BootstrapThumbnail"
+                android:onClick="@{onClickListener}"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_bootstrap_edit_text"
+                style="@style/home_button"
+                android:text="BootstrapEditText"
+                android:onClick="@{onClickListener}"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_bootstrap_well"
+                style="@style/home_button"
+                android:text="BootstrapWell"
+                android:onClick="@{onClickListener}"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_bootstrap_dropdown"
+                style="@style/home_button"
+                android:onClick="@{onClickListener}"
+                android:text="BootstrapDropdown"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_bootstrap_alert"
+                style="@style/home_button"
+                android:onClick="@{onClickListener}"
+                android:text="BootstrapAlert"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/example_bootstrap_badge"
+                style="@style/home_button"
+                android:onClick="@{onClickListener}"
+                android:text="BootstrapBadge"
+                />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

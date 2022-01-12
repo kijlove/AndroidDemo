@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bootstrap"
+    app:startDestination="@+id/boot_strap_fragment">
+
+    <fragment
+        android:id="@+id/boot_strap_fragment"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootStrapIndex"
+        android:label="bootstrap"
+        tools:layout="@layout/fg_boot_strap_index">
+        <action
+            android:id="@+id/example_awesome_text_view"
+            app:destination="@id/fg_awesome_text_view" />
+        <action
+            android:id="@+id/example_bootstrap_alert"
+            app:destination="@id/alert" />
+        <action
+            android:id="@+id/example_bootstrap_badge"
+            app:destination="@id/badge" />
+        <action
+            android:id="@+id/example_bootstrap_button"
+            app:destination="@id/button" />
+        <action
+            android:id="@+id/example_bootstrap_button_group"
+            app:destination="@id/button_group" />
+        <action
+            android:id="@+id/example_bootstrap_circle_thumbnail"
+            app:destination="@id/circle_thumbnail" />
+        <action
+            android:id="@+id/example_bootstrap_dropdown"
+            app:destination="@id/dropdown" />
+        <action
+            android:id="@+id/example_bootstrap_edit_text_view"
+            app:destination="@id/edit_text_view" />
+        <action
+            android:id="@+id/example_bootstrap_label"
+            app:destination="@id/label" />
+        <action
+            android:id="@+id/example_bootstrap_progress_bar"
+            app:destination="@id/progress_bar" />
+        <action
+            android:id="@+id/example_bootstrap_progress_bar_group"
+            app:destination="@id/progress_bar_group" />
+        <action
+            android:id="@+id/example_bootstrap_thumbnail"
+            app:destination="@id/thumbnail" />
+        <action
+            android:id="@+id/example_bootstrap_well"
+            app:destination="@id/well" />
+        <argument
+            android:name="action_name"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fg_awesome_text_view"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgAwesomeTextViewExample"
+        android:label="FgAwesomeTextViewExample"
+        tools:layout="@layout/example_awesome_text_view"></fragment>
+    <fragment
+        android:id="@+id/alert"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapAlertExample"
+        android:label="FgAlertExample"
+        tools:layout="@layout/example_bootstrap_alert"></fragment>
+    <fragment
+        android:id="@+id/badge"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapBadgeExample"
+        android:label="FgBadgeExample"
+        tools:layout="@layout/example_bootstrap_badge"></fragment>
+    <fragment
+        android:id="@+id/button"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapButtonExample"
+        android:label="FgButtonExample"
+        tools:layout="@layout/example_bootstrap_button"></fragment>
+    <fragment
+        android:id="@+id/button_group"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapButtonGroupExample"
+        android:label="主页"
+        tools:layout="@layout/example_bootstrap_button_group"></fragment>
+    <fragment
+        android:id="@+id/circle_thumbnail"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapCircleThumbnailExample"
+        android:label="FgCircleThumbnailExample"
+        tools:layout="@layout/example_bootstrap_circle_thumbnail"></fragment>
+    <fragment
+        android:id="@+id/dropdown"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapDropDownExample"
+        android:label="FgDropDownExample"
+        tools:layout="@layout/example_bootstrap_dropdown"></fragment>
+    <fragment
+        android:id="@+id/edit_text_view"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapEditTextExample"
+        android:label="FgEditTextExample"
+        tools:layout="@layout/example_bootstrap_edit_text_view"></fragment>
+    <fragment
+        android:id="@+id/label"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapLabelExample"
+        android:label="FgLabelExample"
+        tools:layout="@layout/example_bootstrap_label"></fragment>
+    <fragment
+        android:id="@+id/progress_bar"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapProgressBarExample"
+        android:label="FgProgressBarExample"
+        tools:layout="@layout/example_bootstrap_progress_bar"></fragment>
+    <fragment
+        android:id="@+id/progress_bar_group"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapProgressBarGroupExample"
+        android:label="FgProgressBarGroupExample"
+        tools:layout="@layout/example_bootstrap_progress_bar_group"></fragment>
+    <fragment
+        android:id="@+id/thumbnail"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapThumbnailExample"
+        android:label="FgThumbnailExample"
+        tools:layout="@layout/example_bootstrap_thumbnail"></fragment>
+    <fragment
+        android:id="@+id/well"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapWellExample"
+        android:label="FgWellExample"
+        tools:layout="@layout/example_bootstrap_well"></fragment>
+</navigation>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/item_list_fragment"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/item_list_fragment"
+        android:name="com.kijlee.android.demo.ui.main.FgMain"
+        android:label="主页"
+        tools:layout="@layout/layout_recycler_view">
+
+        <action
+            android:id="@+id/show_boot_strap"
+            app:destination="@id/boot_strap_fragment"/>
+        <action
+            android:id="@+id/show_retrofit"
+            app:destination="@id/retrofit_fragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/boot_strap_fragment"
+        android:name="com.kijlee.android.demo.ui.main.FgBootStrap"
+        android:label="BootStrap"
+        tools:layout="@layout/fg_boot_strap">
+        <argument
+            android:name="demo_name"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/retrofit_fragment"
+        android:name="com.kijlee.android.demo.ui.main.FgRetrofit"
+        android:label="item_detail"
+        tools:layout="@layout/fg_retrofit">
+        <argument
+            android:name="demo_name"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+
+</navigation>

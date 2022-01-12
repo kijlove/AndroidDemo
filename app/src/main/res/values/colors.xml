@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--  bootstrap button颜色  -->
+    <color name="custom_default_fill">#33bbaa</color>
+    <color name="custom_default_edge">#119999</color>
+    <color name="custom_active_fill">#119999</color>
+    <color name="custom_active_edge">#008888</color>
+    <color name="custom_disabled_fill">#8833bbaa</color>
+    <color name="custom_disabled_edge">#bb33bbaa</color>
+
+</resources>
