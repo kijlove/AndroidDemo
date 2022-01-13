@@ -54,19 +54,19 @@ class FgBootstrapButtonGroupExample : Fragment() {
 
         val root: View = binding.root
 
-        binding.bbuttonGroupChecked1.setOnCheckedChangedListener { bootstrapButton, isChecked ->
+        binding.bbuttonGroupChecked1.setOnCheckedChangedListener { _, isChecked ->
             if (isChecked) {
                 binding.bbuttonGroupChecked1.setText("radio, button 1 checked")
             }
         }
 
-        binding.bbuttonGroupChecked2.setOnCheckedChangedListener { bootstrapButton, isChecked ->
+        binding.bbuttonGroupChecked2.setOnCheckedChangedListener { _, isChecked ->
             if (isChecked) {
                 binding.bbuttonGroupChecked2.setText("radio, button 2 checked")
             }
         }
 
-        binding.bbuttonGroupChecked3.setOnCheckedChangedListener { bootstrapButton, isChecked ->
+        binding.bbuttonGroupChecked3.setOnCheckedChangedListener { _, isChecked ->
             if (isChecked) {
                 binding.bbuttonGroupChecked3.setText("radio, button 3 checked")
             }

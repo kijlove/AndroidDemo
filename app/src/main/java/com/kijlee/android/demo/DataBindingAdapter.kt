@@ -21,9 +21,7 @@ class DataBindingAdapter(layoutResId: Int, data: MutableList<String>?) :
     override fun convert(holder: BaseDataBindingHolder<ReItemTextBinding>, item: String) {
         // 获取 Binding
         val binding: ReItemTextBinding = holder.dataBinding!!
-        if (binding != null) {
             binding.demo = item
             binding.executePendingBindings()
-        }
     }
 }

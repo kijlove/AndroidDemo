@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/retrofit_fragment"
         android:name="com.kijlee.android.demo.ui.main.FgRetrofit"
-        android:label="item_detail"
+        android:label="Retrofit"
         tools:layout="@layout/fg_retrofit">
         <argument
             android:name="demo_name"

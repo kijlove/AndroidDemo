@@ -148,7 +148,6 @@ class FgBootstrapProgressBarExample : Fragment() {
                 SECOND -> THIRD
                 THIRD -> FOURTH
                 FOURTH -> FIRST
-                else -> FIRST
             }
         }
     }
