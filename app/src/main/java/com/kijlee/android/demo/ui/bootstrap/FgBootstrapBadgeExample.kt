@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.beardedhen.androidbootstrap.BootstrapBadge
+import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.ExampleBootstrapBadgeBinding
+import java.util.*
 
 /**
  * @ProjectName:    AndroidDemo
@@ -46,6 +49,27 @@ class FgBootstrapBadgeExample: Fragment() {
         _layoutBind = ExampleBootstrapBadgeBinding.inflate(layoutInflater)
 
         val root: View = binding.root
+
+
+        val badgeThird = BootstrapBadge(requireContext())
+        badgeThird.badgeText = "Hi!"
+        binding.javaBadgeButton.setBadge(badgeThird)
+
+        binding.setOnClickListener{
+            when (it.id){
+                R.id.lonely_badge->{
+                    binding.lonelyBadge.setBadgeText(Random().nextInt().toString())
+                }
+                R.id.xml_badge_button->{
+                    binding.xmlBadgeButton.setBadgeText(Random().nextInt().toString())
+                }
+                R.id.java_badge_button->{
+                    binding.javaBadgeButton.setBadgeText(Random().nextInt().toString())
+                }
+            }
+        }
+
+
         return root
     }
 
