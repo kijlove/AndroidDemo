@@ -1,10 +1,14 @@
 package com.kijlee.android.demo.net
 
+import android.content.Intent
+import androidx.databinding.ktx.BuildConfig
 import com.kijlee.android.demo.net.Api.Companion.APP_DEFAULT_DOMAIN
 import com.kijlee.android.demo.net.Api.Companion.APP_Luffy_City
+import com.orhanobut.logger.Logger
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
+import okhttp3.logging.HttpLoggingInterceptor
 import okio.Buffer
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -32,8 +36,18 @@ class NetWorkManager private constructor(){
 
     //单例模式
     init {
+
+        val httpClient = OkHttpClient.Builder()
+        //添加拦截
+        val loggingInterceptor = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
+            override fun log(message: String) {
+                Logger.v(message)
+            }
+        })
+        loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY;
         this.mOkHttpClient =
-            RetrofitUrlManager.getInstance().with(OkHttpClient.Builder()) //RetrofitUrlManager 初始化
+            RetrofitUrlManager.getInstance().with(httpClient) //RetrofitUrlManager 初始化
+                .addInterceptor(loggingInterceptor)
                 .readTimeout(5, TimeUnit.SECONDS)
                 .connectTimeout(5, TimeUnit.SECONDS)
                 .build()

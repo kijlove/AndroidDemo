@@ -11,6 +11,7 @@ import com.kijlee.android.demo.DataBindingAdapter
 import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.LayoutRecyclerViewBinding
 import com.kijlee.android.demo.ui.bootstrap.FgBootStrapIndex
+import com.orhanobut.logger.Logger
 
 /**
  * @ProjectName:    AndroidDemo
@@ -59,9 +60,11 @@ class FgMain : Fragment() {
             Toast.makeText(requireContext(), "$demoName$position", Toast.LENGTH_SHORT).show()
             when (demoName) {
                 "BootStrapper" -> {
+                    Logger.e("BootStrapper");
                     view.findNavController().navigate(R.id.show_boot_strap, bundle)
                 }
                 "Retrofit" -> {
+                    Logger.e("Retrofit");
                     view.findNavController().navigate(R.id.show_retrofit, bundle)
                 }
 
