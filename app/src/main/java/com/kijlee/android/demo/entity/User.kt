@@ -14,4 +14,5 @@ import java.io.Serializable
 class User :Serializable{
     var name: String?=null
     var password: String?=null
+    var logonName:String? =null
 }

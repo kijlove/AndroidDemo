@@ -3,7 +3,6 @@ package com.kijlee.android.demo
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.kijlee.android.demo.databinding.ReItemTextBinding
-import com.kijlee.android.demo.entity.User
 
 /**
  * @ProjectName:    AndroidDemo

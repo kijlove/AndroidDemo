@@ -3,10 +3,10 @@
     <array name="demo_array">
         <item>BootStrapper</item>
         <item>Retrofit</item>
-        <item>列表</item>
-        <item>列表</item>
-        <item>列表</item>
-        <item>列表</item>
+        <item>GreenDao</item>
+        <item>MarkDown</item>
+        <item>Pdf</item>
+        <item>TabLayout</item>
         <item>列表</item>
         <item>列表</item>
         <item>列表</item>

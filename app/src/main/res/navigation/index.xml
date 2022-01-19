@@ -17,6 +17,9 @@
         <action
             android:id="@+id/show_retrofit"
             app:destination="@id/retrofit_fragment"/>
+        <action
+            android:id="@+id/show_tablayout"
+            app:destination="@id/tablayout_fragment"/>
 
     </fragment>
 
@@ -36,6 +39,17 @@
         android:name="com.kijlee.android.demo.ui.main.FgRetrofit"
         android:label="Retrofit"
         tools:layout="@layout/fg_retrofit">
+        <argument
+            android:name="demo_name"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/tablayout_fragment"
+        android:name="com.kijlee.android.demo.ui.main.FgTabLayout"
+        android:label="TabLayout"
+        tools:layout="@layout/fg_tab_layout">
         <argument
             android:name="demo_name"
             app:argType="string"

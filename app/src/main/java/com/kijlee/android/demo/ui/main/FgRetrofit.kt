@@ -35,11 +35,11 @@ class FgRetrofit : Fragment() {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
-            if (it.containsKey(ARG_ITEM_ID)) {
+            if (it.containsKey(FgMain.Item_Id)) {
                 // Load the placeholder content specified by the fragment
                 // arguments. In a real-world scenario, use a Loader
                 // to load content from a content provider.
-                item = it.getString(ARG_ITEM_ID).toString()
+                item = it.getString(FgMain.Item_Id).toString()
             }
         }
     }

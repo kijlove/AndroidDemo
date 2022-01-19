@@ -27,14 +27,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
-
-        sourceSets {
-            main {
-                jniLibs.srcDirs = ['libs']
-            }
-        }
-
     }
+    //配置res文件夹目录
+    sourceSets{
+        main{
+            jniLibs.srcDirs = ['libs']
+            res.srcDirs+='src/main/resources_tab'//tablayout
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
@@ -78,6 +79,9 @@ dependencies {
     implementation("me.jessyan:retrofit-url-manager:1.2.5")
     // 打印日志
     implementation("com.orhanobut:logger:2.2.0")
+    // 数据库
+    implementation("org.greenrobot:greendao:3.3.0")
+
 
 
 }

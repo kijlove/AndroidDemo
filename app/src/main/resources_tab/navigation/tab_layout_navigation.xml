@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/index_tab_fragment"
+    android:id="@+id/tab_layout_navigation">
+
+    <fragment
+        android:id="@+id/index_tab_fragment"
+        android:name="com.kijlee.android.demo.ui.tablayout.FgTab1"
+        android:label="标签1"
+        tools:layout="@layout/fg_tab1">
+
+        <action
+            android:id="@+id/to_tab_2"
+            app:destination="@id/_tab_fragment_2"/>
+    </fragment>
+    <fragment
+        android:id="@+id/_tab_fragment_2"
+        android:name="com.kijlee.android.demo.ui.tablayout.FgTab2"
+        android:label="标签2"
+        tools:layout="@layout/fg_tab1">
+        <argument
+            android:name="tab_name"
+            app:argType="string"
+            android:defaultValue=""/>
+
+    </fragment>
+</navigation>

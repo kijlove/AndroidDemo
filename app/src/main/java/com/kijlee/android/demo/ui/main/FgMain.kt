@@ -53,7 +53,7 @@ class FgMain : Fragment() {
             var bundle = Bundle()
 
             bundle.putString(
-                FgBootStrapIndex.ARG_ITEM_ID,
+                Item_Id,
                 demoName
             )
 
@@ -63,9 +63,15 @@ class FgMain : Fragment() {
                     Logger.e("BootStrapper");
                     view.findNavController().navigate(R.id.show_boot_strap, bundle)
                 }
+
                 "Retrofit" -> {
                     Logger.e("Retrofit");
                     view.findNavController().navigate(R.id.show_retrofit, bundle)
+                }
+
+                "TabLayout" -> {
+                    Logger.e("tablayout");
+                    view.findNavController().navigate(R.id.show_tablayout, bundle)
                 }
 
             }
@@ -77,6 +83,14 @@ class FgMain : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _layoutBind = null
+    }
+
+    companion object {
+        /**
+         * The fragment argument representing the item ID that this fragment
+         * represents.
+         */
+        const val Item_Id = "item_id"
     }
 
 }
