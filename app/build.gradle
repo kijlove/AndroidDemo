@@ -32,6 +32,7 @@ android {
     sourceSets{
         main{
             jniLibs.srcDirs = ['libs']
+            res.srcDirs+='src/main/resources_bootstrap'//bootstrap
             res.srcDirs+='src/main/resources_tab'//tablayout
         }
     }
