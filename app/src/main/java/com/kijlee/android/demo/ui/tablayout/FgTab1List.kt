@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.kijlee.android.demo.databinding.FgTab1Binding
 import com.kijlee.android.demo.databinding.FgTab1ListBinding
+import com.kijlee.android.demo.entity.ClickEntity
 import com.kijlee.android.demo.ui.main.FgTabLayout
 
 /**
@@ -23,6 +24,7 @@ class FgTab1List: Fragment() {
 
     var _layoutBind: FgTab1ListBinding? = null
     var item = ""
+    var adapter: Tab1ListAdapter? = null
 
     private val binding get() = _layoutBind!!
 
@@ -48,8 +50,18 @@ class FgTab1List: Fragment() {
 
         _layoutBind = FgTab1ListBinding.inflate(layoutInflater)
 
+        var clickEntityList: MutableList<ClickEntity>? = ArrayList()
+        adapter = Tab1ListAdapter(clickEntityList!!)
+
+
+        for (item in 0 until 100){
+            var clickEntity = ClickEntity(item%5)
+            clickEntityList.add(clickEntity)
+        }
         val root: View = binding.root
         binding.name = item
+
+        binding.recycler.adapter =  adapter
 
         return root
     }

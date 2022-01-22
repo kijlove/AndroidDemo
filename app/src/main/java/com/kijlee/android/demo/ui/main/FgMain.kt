@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.kijlee.android.demo.DataBindingAdapter
 import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.LayoutRecyclerViewBinding
-import com.kijlee.android.demo.ui.bootstrap.FgBootStrapIndex
 import com.orhanobut.logger.Logger
 
 /**

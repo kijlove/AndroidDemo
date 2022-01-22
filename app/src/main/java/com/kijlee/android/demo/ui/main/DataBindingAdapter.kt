@@ -1,4 +1,4 @@
-package com.kijlee.android.demo
+package com.kijlee.android.demo.ui.main
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder

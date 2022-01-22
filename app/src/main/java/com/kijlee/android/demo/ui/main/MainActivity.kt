@@ -1,16 +1,13 @@
 package com.kijlee.android.demo.ui.main
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import com.kijlee.android.demo.DataBindingAdapter
 import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.ActivityMainBinding
-import com.kijlee.android.demo.databinding.LayoutRecyclerViewBinding
 
 import androidx.navigation.ui.setupActionBarWithNavController
 

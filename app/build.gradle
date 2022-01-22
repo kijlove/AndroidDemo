@@ -17,10 +17,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildFeatures {
-        dataBinding true
-        viewBinding true
-    }
     buildTypes {
         release {
             minifyEnabled false
@@ -34,6 +30,7 @@ android {
             jniLibs.srcDirs = ['libs']
             res.srcDirs+='src/main/resources_bootstrap'//bootstrap
             res.srcDirs+='src/main/resources_tab'//tablayout
+            res.srcDirs+='src/main/resources_item'//recycler_view_item_layout
         }
     }
 
@@ -43,6 +40,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '11'
+    }
+    buildFeatures {
+        dataBinding true
+        viewBinding true
     }
 }
 
