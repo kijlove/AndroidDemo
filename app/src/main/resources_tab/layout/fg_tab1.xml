@@ -15,18 +15,22 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="match_parent">
 
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/change_fragment"
-            style="@style/wrapping_button"
-            android:text="@{name}"
-            android:onClick="@{onClickListener}"
-            app:bootstrapBrand="success"
-            app:roundedCorners="true"
-            tools:ignore="MissingConstraints" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="auto"
+            />
+<androidx.viewpager2.widget.ViewPager2
+    android:id="@+id/vp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+
+    </LinearLayout>
 </layout>
