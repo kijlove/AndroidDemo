@@ -72,6 +72,11 @@ class FgMain : Fragment() {
                     view.findNavController().navigate(R.id.show_tablayout, bundle)
                 }
 
+                "SqlLite" -> {
+                    Logger.e("SqlLite");
+                    view.findNavController().navigate(R.id.show_sql_lite, FgSqlLiteArgs.Builder().setDemoName(demoName).build().toBundle())
+                }
+
             }
         }
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+app:startDestination="@+id/index_sql_lite_fragment"
+android:id="@+id/sql_lite_navigation">
+
+<fragment
+    android:id="@+id/index_sql_lite_fragment"
+    android:name="com.kijlee.android.demo.ui.sqllite.FgSqlLiteIndex"
+    android:label="数据库主页"
+    tools:layout="@layout/fg_sql_lite_index">
+
+    <action
+        android:id="@+id/to_green_dao"
+        app:destination="@id/greendao_fragment"/>
+</fragment>
+<fragment
+    android:id="@+id/greendao_fragment"
+    android:name="com.kijlee.android.demo.ui.sqllite.FgGreenDao"
+    android:label="GreenDao"
+    tools:layout="@layout/fg_green_dao">
+    <argument
+        android:name="sql_name"
+        app:argType="string"
+        android:defaultValue=""/>
+
+</fragment>
+</navigation>

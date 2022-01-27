@@ -29,6 +29,7 @@ class App: MultiDexApplication() {
         TypefaceProvider.registerDefaultIconSets()
         //日志打印
         Logger.addLogAdapter(AndroidLogAdapter())
+        //切换不同的 BaseUrl
         RetrofitUrlManager.getInstance().setDebug(true)
         //将每个 BaseUrl 进行初始化,运行时可以随时改变 DOMAIN_NAME 对应的值,从而达到切换 BaseUrl 的效果
         RetrofitUrlManager.getInstance().putDomain(Luffy_City, APP_Luffy_City)
