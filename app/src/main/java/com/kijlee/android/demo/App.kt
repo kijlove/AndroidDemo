@@ -1,10 +1,9 @@
 package com.kijlee.android.demo
 
-import android.app.Application
-import android.content.Context
-import android.util.Log
 import androidx.multidex.MultiDexApplication
 import com.beardedhen.androidbootstrap.TypefaceProvider
+import com.kijlee.android.demo.entity.greendao.DaoMaster
+import com.kijlee.android.demo.entity.greendao.DaoSession
 import com.kijlee.android.demo.net.Api.Companion.Luffy_City
 import com.kijlee.android.demo.net.Api.Companion.APP_Luffy_City
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager
@@ -27,6 +26,9 @@ class App: MultiDexApplication() {
         super.onCreate()
         // setup default typefaces 字体
         TypefaceProvider.registerDefaultIconSets()
+        // greendao数据库
+        initDao()
+
         //日志打印
         Logger.addLogAdapter(AndroidLogAdapter())
         //切换不同的 BaseUrl
@@ -35,4 +37,16 @@ class App: MultiDexApplication() {
         RetrofitUrlManager.getInstance().putDomain(Luffy_City, APP_Luffy_City)
 
     }
+
+
+    fun initDao() {
+        val helper = DaoMaster.DevOpenHelper(this, "china_town")
+        val db = helper.writableDb
+        daoSession = DaoMaster(db).newSession()
+    }
+
+        private var daoSession: DaoSession? = null
+        open fun getDaoSession(): DaoSession {
+            return daoSession!!
+        }
 }

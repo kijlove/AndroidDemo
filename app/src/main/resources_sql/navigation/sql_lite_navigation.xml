@@ -17,7 +17,7 @@ android:id="@+id/sql_lite_navigation">
 </fragment>
 <fragment
     android:id="@+id/greendao_fragment"
-    android:name="com.kijlee.android.demo.ui.sqllite.FgGreenDao"
+    android:name="com.kijlee.android.demo.ui.sqllite.greendao.FgGreenDao"
     android:label="GreenDao"
     tools:layout="@layout/fg_green_dao">
     <argument

@@ -50,6 +50,15 @@ android {
     }
 }
 
+greendao {
+    // 指定数据库schema版本号，迁移等操作会用到
+    schemaVersion 1
+    // 设置生成数据库文件的目录，默认是在build中，可以将生成的文件放到我们的java目录中
+    targetGenDir 'src/main/java'
+    // 设置生成的数据库相关文件的包名，默认为entity所在的包名
+    daoPackage 'com.kijlee.android.demo.entity.greendao'
+}
+
 dependencies {
 //    64k问题
     implementation "androidx.multidex:multidex:2.0.1"
@@ -100,6 +109,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.jakewharton.rxbinding:rxbinding:1.0.1'
     implementation("com.squareup.okhttp3:logging-interceptor:3.10.0")
 //    用于管理多个baseurl
     implementation("me.jessyan:retrofit-url-manager:1.2.5")
@@ -107,7 +117,15 @@ dependencies {
     implementation("com.orhanobut:logger:2.2.0")
     // 数据库
     implementation("org.greenrobot:greendao:3.3.0")
-
-
+    // rxbinding
+    implementation 'com.jakewharton.rxbinding4:rxbinding-core:4.0.0'
+    implementation 'com.jakewharton.rxbinding4:rxbinding-appcompat:4.0.0'
+    implementation 'com.jakewharton.rxbinding4:rxbinding-drawerlayout:4.0.0'
+    implementation 'com.jakewharton.rxbinding4:rxbinding-leanback:4.0.0'
+    implementation 'com.jakewharton.rxbinding4:rxbinding-recyclerview:4.0.0'
+    implementation 'com.jakewharton.rxbinding4:rxbinding-slidingpanelayout:4.0.0'
+    implementation 'com.jakewharton.rxbinding4:rxbinding-swiperefreshlayout:4.0.0'
+    implementation 'com.jakewharton.rxbinding4:rxbinding-viewpager:4.0.0'
+    implementation 'com.jakewharton.rxbinding4:rxbinding-viewpager2:4.0.0'
 
 }
