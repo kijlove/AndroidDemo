@@ -11,6 +11,7 @@ import com.kijlee.android.demo.App
 import com.kijlee.android.demo.databinding.FgGreenDaoBinding
 import com.kijlee.android.demo.entity.ChinaCity
 import com.kijlee.android.demo.entity.ChinaTown
+import com.kijlee.android.demo.entity.greendao.DaoSession
 import com.kijlee.android.demo.ui.main.FgSqlLite
 import com.orhanobut.logger.Logger
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -74,7 +75,7 @@ class FgGreenDao : Fragment() {
         city_json_io.close()
         var citys = JSONArray(stringBuilder.toString())
         // 新增数据
-//        addProvince(citys)
+        addProvince(citys)
         // 查询数据
         selectProvice()
 
@@ -89,7 +90,7 @@ class FgGreenDao : Fragment() {
     }
 
     //查询省份
-    fun selectProvice(){
+    fun selectProvice() :MutableList<ChinaCity>{
 
         val rxDao = (requireActivity().application as App).getDaoSession()
         var provinces :MutableList<ChinaCity> = rxDao.loadAll<ChinaCity,ChinaCity>(ChinaCity::class.java)
@@ -98,29 +99,71 @@ class FgGreenDao : Fragment() {
             stringBuilder.append(item.name).append("\n")
         }
             binding.sqlName = "$item\n$stringBuilder"
-    }
-
-    //添加城市
-    fun addCity(){
-
+        return provinces
     }
 
     // 添加省份
     fun addProvince(citys:JSONArray){
-
         val rxDao = (requireActivity().application as App).getDaoSession()
-
         rxDao.runInTx {
             for (i in 0 until citys.length()) {
-                val city = Gson().fromJson(citys[i].toString(), ChinaTown::class.java)
-                var chinaCity = ChinaCity()
-                chinaCity._id = i.toLong()
-                chinaCity.code = city.code
-                chinaCity.name = city.name
-                chinaCity.url = city.url
-                Logger.e("chinaCity.name-----${chinaCity.name}")
-                rxDao.insert(chinaCity)
+                val provinces = Gson().fromJson(citys[i].toString(), ChinaTown::class.java)
+                var chinaProvince = ChinaCity()
+                chinaProvince._id = provinces.code.toLong()
+                chinaProvince.code = provinces.code
+                chinaProvince.name = provinces.name
+                chinaProvince.url = provinces.url
+                // 添加城市
+                addCity(rxDao,provinces.city,chinaProvince._id)
+
+                rxDao.insert(chinaProvince)
             }
+        }
+    }
+    //添加城市
+    fun addCity(rxDao: DaoSession, citys:MutableList<ChinaTown>, provinceId:Long){
+        for(j in 0 until citys.size){
+            val city = citys[j]
+            var chinaCity = ChinaCity()
+            chinaCity._id = city.code.toLong()
+            chinaCity.code = city.code
+            chinaCity.name = city.name
+            chinaCity.url = city.url
+            chinaCity.city_id = provinceId
+            addCounty(rxDao,city.county,provinceId,chinaCity._id)
+            rxDao.insert(chinaCity)
+        }
+    }
+    //添加县城
+    fun addCounty(rxDao: DaoSession,countys:MutableList<ChinaTown>,provinceId:Long,cityId:Long){
+
+        for(k in 0 until countys.size){
+            val county = countys[k]
+            var chinaCounty = ChinaCity()
+            chinaCounty._id = county.code.toLong()
+            chinaCounty.code = county.code
+            chinaCounty.name = county.name
+            chinaCounty.url = county.url
+            chinaCounty.city_id = provinceId
+            chinaCounty.county_id = cityId
+            addTown(rxDao,county.town,provinceId,cityId,chinaCounty._id)
+            rxDao.insert(chinaCounty)
+        }
+    }
+    // 添加乡镇
+    fun addTown(rxDao: DaoSession,towns:MutableList<ChinaTown>,provinceId:Long,cityId:Long,countyId:Long){
+
+        for(l in 0 until towns.size){
+            val town = towns[l]
+            var chinaTown = ChinaCity()
+            chinaTown._id = town.code.toLong()
+            chinaTown.code = town.code
+            chinaTown.name = town.name
+            chinaTown.url = town.url
+            chinaTown.city_id = provinceId
+            chinaTown.county_id = cityId
+            chinaTown.town_id = countyId
+            rxDao.insert(chinaTown)
         }
     }
 

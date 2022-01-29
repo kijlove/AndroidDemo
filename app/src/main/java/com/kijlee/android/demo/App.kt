@@ -38,7 +38,7 @@ class App: MultiDexApplication() {
 
     }
 
-
+    // 具体类 需要makebuild生成
     fun initDao() {
         val helper = DaoMaster.DevOpenHelper(this, "china_town")
         val db = helper.writableDb
