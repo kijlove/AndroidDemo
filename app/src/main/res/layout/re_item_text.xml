@@ -14,6 +14,7 @@
     <com.beardedhen.androidbootstrap.BootstrapButton
         style="@style/home_button"
         android:id="@+id/text1"
+        app:bootstrapSize="xl"
         android:text="@{demo}"
         />
 </layout>

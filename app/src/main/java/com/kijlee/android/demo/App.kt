@@ -9,6 +9,7 @@ import com.kijlee.android.demo.net.Api.Companion.APP_Luffy_City
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
+import com.qmuiteam.qmui.arch.QMUISwipeBackActivityManager
 
 
 /**
@@ -24,6 +25,8 @@ class App: MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        // QMUI设置
+        QMUISwipeBackActivityManager.init(this)
         // setup default typefaces 字体
         TypefaceProvider.registerDefaultIconSets()
         // greendao数据库

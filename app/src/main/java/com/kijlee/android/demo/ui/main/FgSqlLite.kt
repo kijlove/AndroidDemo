@@ -27,6 +27,10 @@ class FgSqlLite: Fragment() {
     // onDestroyView.
     private val binding get() = _layoutBind!!
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _layoutBind = null
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

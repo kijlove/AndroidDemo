@@ -23,6 +23,9 @@
         <action
             android:id="@+id/show_sql_lite"
             app:destination="@id/sql_lite_fragment"/>
+        <action
+            android:id="@+id/to_gaode"
+            app:destination="@id/fg_gaode" />
 
     </fragment>
 
@@ -63,6 +66,17 @@
         android:name="com.kijlee.android.demo.ui.main.FgSqlLite"
         android:label="SqlLite数据库"
         tools:layout="@layout/fg_sql_lite">
+        <argument
+            android:name="demo_name"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fg_gaode"
+        android:name="com.kijlee.android.demo.ui.main.FgGaode"
+        android:label="高德地图"
+        tools:layout="@layout/fg_gaode">
         <argument
             android:name="demo_name"
             app:argType="string"

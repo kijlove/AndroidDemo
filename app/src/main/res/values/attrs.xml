@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    带单位的edittext 设置单位名称-->
+    <declare-styleable name="UnitEditView">
+        <attr name="unitText" format="string"/>
+        <attr name="unitTextColor" format="color" />
+    </declare-styleable>
+<!--    前后带其他 文字和颜色的textview 设置单位名称-->
+    <declare-styleable name="StarTextView">
+        <attr name="endText" format="string"/>
+        <attr name="startText" format="string"/>
+        <attr name="startColor" format="color" />
+        <attr name="endColor" format="color" />
+        <attr name="location"/>
+    </declare-styleable>
+
+    <attr name="location" format="enum">
+        <enum name="start" value="0"/>
+        <enum name="end" value="1"/>
+        <enum name="both" value="2"/>
+    </attr>
+</resources>
+

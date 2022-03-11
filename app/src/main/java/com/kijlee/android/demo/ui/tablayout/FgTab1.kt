@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.google.android.material.tabs.TabLayout
@@ -45,10 +47,6 @@ class FgTab1 : Fragment() , TabLayout.OnTabSelectedListener{
 
         val root: View = binding.root
         for(item in tabList!!){
-            var tab = binding.tab.newTab()
-
-            tab.text = item
-            binding.tab.addTab(tab)
             var fragment = FgTab1List()
             val bundle = Bundle()
             bundle.putString(Tab_Name,item)
@@ -58,8 +56,12 @@ class FgTab1 : Fragment() , TabLayout.OnTabSelectedListener{
         val vp1Adapter = Vp1Adapter(requireActivity(),fragmentList)
         binding.vp.adapter = vp1Adapter
         var tablayoutMenu  = TabLayoutMediator(binding.tab,binding.vp, {tab,position->
-            Logger.e("tab.text-----${tab.text}position----${position}")
+            // 只显示文本
             tab.text = tabList!![position]
+            // 显示自定义view控件
+            val view = View.inflate(requireContext(),R.layout.layout_tab_title_view,null) as ConstraintLayout
+            view.findViewById<TextView>(R.id.tab_name).setText(tabList!![position])
+            tab.customView = view
         })
         tablayoutMenu.attach()
         binding.tab.addOnTabSelectedListener(this)

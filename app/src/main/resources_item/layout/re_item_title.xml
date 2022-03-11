@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="title"
+            type="String" />
+    </data>
+
+
+
+    <com.beardedhen.androidbootstrap.BootstrapLabel
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_text"
+        android:gravity="left"
+        app:bootstrapHeading="h3"
+        app:bootstrapBrand="primary"
+        android:text="@{title}"
+        />
+</layout>

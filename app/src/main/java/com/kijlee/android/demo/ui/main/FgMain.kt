@@ -74,7 +74,12 @@ class FgMain : Fragment() {
 
                 "SqlLite" -> {
                     Logger.e("SqlLite");
-                    view.findNavController().navigate(R.id.show_sql_lite, FgSqlLiteArgs.Builder().setDemoName(demoName).build().toBundle())
+                    view.findNavController().navigate(R.id.show_sql_lite,
+                        FgSqlLiteArgs.Builder().setDemoName(demoName).build().toBundle())
+                }
+                "高德地图" -> {
+                    Logger.e("SqlLite");
+                    view.findNavController().navigate(R.id.to_gaode,bundle)
                 }
 
             }

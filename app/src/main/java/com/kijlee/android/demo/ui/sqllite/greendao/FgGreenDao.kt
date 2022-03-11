@@ -64,6 +64,7 @@ class FgGreenDao : Fragment() {
         val city_json_io = requireContext().assets.open("json/china_town.json")
         var stringBuilder = StringBuilder()
         var bufferReader = BufferedReader(InputStreamReader(city_json_io, "utf-8"))
+
         while (true) {
             val line = bufferReader.readLine()
             if (line == null) {
@@ -75,7 +76,7 @@ class FgGreenDao : Fragment() {
         city_json_io.close()
         var citys = JSONArray(stringBuilder.toString())
         // 新增数据
-        addProvince(citys)
+//        addProvince(citys)
         // 查询数据
         selectProvice()
 

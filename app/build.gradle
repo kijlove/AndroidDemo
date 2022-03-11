@@ -1,8 +1,10 @@
 plugins {
     id ('com.android.application')
     id ('kotlin-android')
+    id ('kotlin-kapt')
     id ('org.greenrobot.greendao')
     id("androidx.navigation.safeargs")
+
 }
 
 android {
@@ -34,6 +36,7 @@ android {
             res.srcDirs+='src/main/resources_tab'//tablayout
             res.srcDirs+='src/main/resources_item'//recycler_view_item_layout
             res.srcDirs+='src/main/resources_sql'//greendao数据库
+            res.srcDirs+='src/main/resources_gaode'//高德地图
         }
     }
 
@@ -111,7 +114,7 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'com.jakewharton.rxbinding:rxbinding:1.0.1'
     implementation("com.squareup.okhttp3:logging-interceptor:3.10.0")
-//    用于管理多个baseurl
+    // 用于管理多个baseurl
     implementation("me.jessyan:retrofit-url-manager:1.2.5")
     // 打印日志
     implementation("com.orhanobut:logger:2.2.0")
@@ -127,5 +130,13 @@ dependencies {
     implementation 'com.jakewharton.rxbinding4:rxbinding-swiperefreshlayout:4.0.0'
     implementation 'com.jakewharton.rxbinding4:rxbinding-viewpager:4.0.0'
     implementation 'com.jakewharton.rxbinding4:rxbinding-viewpager2:4.0.0'
+
+    //qmui
+    implementation 'com.qmuiteam:qmui:2.0.0-alpha10'
+    implementation "com.qmuiteam:arch:2.0.0-alpha10"
+    kapt "com.qmuiteam:arch-compiler:2.0.0-alpha10" // use annotationProcessor if java
+    // 高德地图
+    implementation files('libs/Android_Map3D_SDK_V9.1.0_20220210.jar')
+    implementation fileTree(include: '*.jar', dir: 'libs')
 
 }
