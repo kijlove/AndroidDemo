@@ -3,6 +3,7 @@ package com.kijlee.android.demo.net
 import android.content.Intent
 import androidx.databinding.ktx.BuildConfig
 import com.kijlee.android.demo.net.Api.Companion.APP_DEFAULT_DOMAIN
+import com.kijlee.android.demo.net.Api.Companion.APP_DEFAULT_NAME
 import com.kijlee.android.demo.net.Api.Companion.APP_Luffy_City
 import com.orhanobut.logger.Logger
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager
@@ -29,6 +30,8 @@ class NetWorkManager private constructor(){
     var mRetrofit: Retrofit
     //    路飞接口
     var mLuffyCityService: LuffyCityService
+    //    健康界网站中破解出来的接口
+    var mhealthService: HealthService
 
     private object NetWorkManagerHolder {
         val INSTANCE = NetWorkManager()
@@ -52,15 +55,16 @@ class NetWorkManager private constructor(){
                 .connectTimeout(5, TimeUnit.SECONDS)
                 .build()
         this.mRetrofit = Retrofit.Builder()
-            .baseUrl(APP_Luffy_City)
+            .baseUrl(Api.HEALTH_URL_DOMAIN)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) //使用rxjava
             .addConverterFactory(GsonConverterFactory.create()) //使用Gson
             .client(mOkHttpClient)
             .build()
         this.mLuffyCityService = mRetrofit.create(LuffyCityService::class.java)
+        this.mhealthService = mRetrofit.create(HealthService::class.java)
     }
 
     companion object {
-        val instance: NetWorkManager by lazy { NetWorkManagerHolder.INSTANCE }
+        val instance get() = NetWorkManagerHolder.INSTANCE
     }
 }

@@ -81,6 +81,9 @@ class FgMain : Fragment() {
                     Logger.e("SqlLite");
                     view.findNavController().navigate(R.id.to_gaode,bundle)
                 }
+                "测试一个新闻列表" -> {
+                    view.findNavController().navigate(R.id.to_fg_a_news,bundle)
+                }
 
             }
         }

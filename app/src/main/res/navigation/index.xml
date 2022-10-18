@@ -26,6 +26,9 @@
         <action
             android:id="@+id/to_gaode"
             app:destination="@id/fg_gaode" />
+        <action
+            android:id="@+id/to_fg_a_news"
+            app:destination="@id/fg_a_news" />
 
     </fragment>
 
@@ -81,6 +84,30 @@
             android:name="demo_name"
             app:argType="string"
             android:defaultValue=""/>
+    </fragment>
+    <fragment
+        android:id="@+id/fg_qmui_web_view"
+        android:name="com.kijlee.android.demo.ui.qmui.FgQmuiWebView"
+        android:label="qmui_web_view"
+        tools:layout="@layout/layout_qmui_webview">
+        <argument
+            android:name="url"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fg_a_news"
+        android:name="com.kijlee.android.demo.ui.main.FgANews"
+        android:label="新闻"
+        tools:layout="@layout/fg_tab1_list">
+        <argument
+            android:name="url"
+            app:argType="string"
+            android:defaultValue=""/>
+        <action
+            android:id="@+id/to_fg_qmui_web_view"
+            app:destination="@id/fg_qmui_web_view" />
     </fragment>
 
 </navigation>

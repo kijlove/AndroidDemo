@@ -58,15 +58,16 @@ package com.kijlee.android.demo.net
 open interface Api {
     // companion object 修饰为伴生对象,伴生对象在类中只能存在一个，类似于java中的静态方法 Java 中使用类访问静态成员，静态方法。
     companion object {
-        const val APP_DEFAULT_DOMAIN = "http://jessyan.me"
         const val APP_GITHUB_DOMAIN = "https://api.github.com"
-        const val APP_GANK_DOMAIN = "http://gank.io"
         const val APP_DOUBAN_DOMAIN = "https://api.douban.com"
         const val GITHUB_DOMAIN_NAME = "github"
-        const val GANK_DOMAIN_NAME = "gank"
         const val DOUBAN_DOMAIN_NAME = "douban"
+        const val APP_DEFAULT_NAME = "jessyan"
+        const val APP_DEFAULT_DOMAIN = "http://jessyan.me"
         const val Luffy_City = "luffycity"
         const val APP_Luffy_City = "https://api.luffycity.com/"
+        const val HEALTH_NAME = "health_name"
+        const val HEALTH_URL_DOMAIN = "https://www.cn-healthcare.com/"
 
     }
 }

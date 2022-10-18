@@ -37,6 +37,7 @@ android {
             res.srcDirs+='src/main/resources_item'//recycler_view_item_layout
             res.srcDirs+='src/main/resources_sql'//greendao数据库
             res.srcDirs+='src/main/resources_gaode'//高德地图
+            res.srcDirs+='src/main/resources_qmui'//qmui
         }
     }
 
@@ -138,5 +139,8 @@ dependencies {
     // 高德地图
     implementation files('libs/Android_Map3D_SDK_V9.1.0_20220210.jar')
     implementation fileTree(include: '*.jar', dir: 'libs')
+    // 图片加载
+    implementation('com.github.bumptech.glide:glide:4.14.2')
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
 
 }

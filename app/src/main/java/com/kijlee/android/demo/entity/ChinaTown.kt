@@ -1,8 +1,6 @@
 package com.kijlee.android.demo.entity
-import org.greenrobot.greendao.annotation.Entity
-import org.greenrobot.greendao.annotation.Id
-import org.greenrobot.greendao.annotation.NotNull
 import java.io.Serializable
+
 /**
  * @ProjectName:    AndroidDemo
  * @Package:        com.kijlee.android.demo.entity

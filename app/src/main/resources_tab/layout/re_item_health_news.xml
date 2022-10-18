@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="news"
+            type="com.kijlee.android.demo.entity.health.NewsBean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_position"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.beardedhen.androidbootstrap.BootstrapThumbnail
+            android:id="@+id/image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/default_padding"
+            android:layout_height="wrap_content"
+            app:bootstrapBrand="regular"
+            app:hasBorder="true"
+            app:roundedCorners="true" />
+
+        <TextView
+            android:id="@+id/title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/image"
+            android:layout_width="0dp"
+            android:layout_margin="@dimen/default_padding"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="wrap_content"
+            android:text="@{news.title}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
