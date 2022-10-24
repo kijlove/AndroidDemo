@@ -61,17 +61,14 @@ class FgMain : Fragment() {
                     Logger.e("BootStrapper");
                     view.findNavController().navigate(R.id.show_boot_strap, bundle)
                 }
-
                 "Retrofit" -> {
                     Logger.e("Retrofit");
                     view.findNavController().navigate(R.id.show_retrofit, bundle)
                 }
-
                 "TabLayout" -> {
                     Logger.e("tablayout");
                     view.findNavController().navigate(R.id.show_tablayout, bundle)
                 }
-
                 "SqlLite" -> {
                     Logger.e("SqlLite");
                     view.findNavController().navigate(R.id.show_sql_lite,
@@ -84,7 +81,9 @@ class FgMain : Fragment() {
                 "测试一个新闻列表" -> {
                     view.findNavController().navigate(R.id.to_fg_a_news,bundle)
                 }
-
+                "城市列表选择" -> {
+                    view.findNavController().navigate(R.id.to_fg_city_select,bundle)
+                }
             }
         }
 

@@ -1,5 +1,6 @@
 <resources>
 
+    <dimen name="activity_horizontal_margin">16dp</dimen>
     <!--bootstrap-->
     <dimen name="default_padding">16dp</dimen>
     <dimen name="micro_padding">4dp</dimen>

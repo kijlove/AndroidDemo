@@ -5,12 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.google.android.material.tabs.TabLayout
-import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.FgTabLayoutBinding
-import com.kijlee.android.demo.ui.tablayout.FgTab1
-import androidx.navigation.findNavController
-import com.orhanobut.logger.Logger
 
 /**
  * @ProjectName:    AndroidDemo

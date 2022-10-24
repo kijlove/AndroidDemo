@@ -4,10 +4,9 @@ import androidx.multidex.MultiDexApplication
 import com.beardedhen.androidbootstrap.TypefaceProvider
 import com.kijlee.android.demo.entity.greendao.DaoMaster
 import com.kijlee.android.demo.entity.greendao.DaoSession
-import com.kijlee.android.demo.net.Api.Companion.Luffy_City
-import com.kijlee.android.demo.net.Api.Companion.APP_Luffy_City
 import com.kijlee.android.demo.net.Api.Companion.HEALTH_NAME
 import com.kijlee.android.demo.net.Api.Companion.HEALTH_URL_DOMAIN
+import com.kijlee.android.demo.entity.objectbox.ObjectBox
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
@@ -40,7 +39,7 @@ class App: MultiDexApplication() {
         RetrofitUrlManager.getInstance().setDebug(true)
         //将每个 BaseUrl 进行初始化,运行时可以随时改变 DOMAIN_NAME 对应的值,从而达到切换 BaseUrl 的效果
         RetrofitUrlManager.getInstance().putDomain(HEALTH_NAME, HEALTH_URL_DOMAIN)
-
+        ObjectBox.init(this)
     }
 
     // 具体类 需要makebuild生成
@@ -54,4 +53,7 @@ class App: MultiDexApplication() {
         open fun getDaoSession(): DaoSession {
             return daoSession!!
         }
+    companion object {
+        const val TAG = "OBXSync"
+    }
 }

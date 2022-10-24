@@ -63,6 +63,9 @@ class FgSqlLiteIndex : Fragment() {
                 R.id.to_green_dao->{//GreenDao数据库使用
                     it.findNavController().navigate(R.id.to_green_dao, bundle)
                 }
+                R.id.to_object_box->{//GreenDao数据库使用
+                    it.findNavController().navigate(R.id.to_object_box, bundle)
+                }
             }
         }
 

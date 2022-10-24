@@ -14,12 +14,27 @@ android:id="@+id/sql_lite_navigation">
     <action
         android:id="@+id/to_green_dao"
         app:destination="@id/greendao_fragment"/>
+
+    <action
+        android:id="@+id/to_object_box"
+        app:destination="@id/object_box_fragment"/>
 </fragment>
 <fragment
     android:id="@+id/greendao_fragment"
     android:name="com.kijlee.android.demo.ui.sqllite.greendao.FgGreenDao"
     android:label="GreenDao"
     tools:layout="@layout/fg_green_dao">
+    <argument
+        android:name="sql_name"
+        app:argType="string"
+        android:defaultValue=""/>
+
+</fragment>
+<fragment
+    android:id="@+id/object_box_fragment"
+    android:name="com.kijlee.android.demo.ui.sqllite.objectbox.FgObjectBox"
+    android:label="ObjectBox"
+    tools:layout="@layout/fg_object_box">
     <argument
         android:name="sql_name"
         app:argType="string"

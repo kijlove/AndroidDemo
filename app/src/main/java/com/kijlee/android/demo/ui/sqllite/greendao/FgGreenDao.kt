@@ -92,14 +92,15 @@ class FgGreenDao : Fragment() {
 
     //查询省份
     fun selectProvice() :MutableList<ChinaCity>{
-
         val rxDao = (requireActivity().application as App).getDaoSession()
         var provinces :MutableList<ChinaCity> = rxDao.loadAll<ChinaCity,ChinaCity>(ChinaCity::class.java)
         var stringBuilder = StringBuilder()
         for (item in provinces){
             stringBuilder.append(item.name).append("\n")
         }
-            binding.sqlName = "$item\n$stringBuilder"
+        binding.sqlName = "$item\n$stringBuilder"
+        Logger.e(stringBuilder.toString())
+
         return provinces
     }
 
@@ -110,12 +111,12 @@ class FgGreenDao : Fragment() {
             for (i in 0 until citys.length()) {
                 val provinces = Gson().fromJson(citys[i].toString(), ChinaTown::class.java)
                 var chinaProvince = ChinaCity()
-                chinaProvince._id = provinces.code.toLong()
+                chinaProvince._id = provinces.code!!.toLong()
                 chinaProvince.code = provinces.code
                 chinaProvince.name = provinces.name
                 chinaProvince.url = provinces.url
                 // 添加城市
-                addCity(rxDao,provinces.city,chinaProvince._id)
+                addCity(rxDao,provinces.city!!,chinaProvince._id)
 
                 rxDao.insert(chinaProvince)
             }
@@ -126,12 +127,12 @@ class FgGreenDao : Fragment() {
         for(j in 0 until citys.size){
             val city = citys[j]
             var chinaCity = ChinaCity()
-            chinaCity._id = city.code.toLong()
+            chinaCity._id = city.code!!.toLong()
             chinaCity.code = city.code
             chinaCity.name = city.name
             chinaCity.url = city.url
             chinaCity.city_id = provinceId
-            addCounty(rxDao,city.county,provinceId,chinaCity._id)
+            addCounty(rxDao,city.county!!,provinceId,chinaCity._id)
             rxDao.insert(chinaCity)
         }
     }
@@ -141,13 +142,13 @@ class FgGreenDao : Fragment() {
         for(k in 0 until countys.size){
             val county = countys[k]
             var chinaCounty = ChinaCity()
-            chinaCounty._id = county.code.toLong()
+            chinaCounty._id = county.code!!.toLong()
             chinaCounty.code = county.code
             chinaCounty.name = county.name
             chinaCounty.url = county.url
             chinaCounty.city_id = provinceId
             chinaCounty.county_id = cityId
-            addTown(rxDao,county.town,provinceId,cityId,chinaCounty._id)
+            addTown(rxDao,county.town!!,provinceId,cityId,chinaCounty._id)
             rxDao.insert(chinaCounty)
         }
     }
@@ -157,7 +158,7 @@ class FgGreenDao : Fragment() {
         for(l in 0 until towns.size){
             val town = towns[l]
             var chinaTown = ChinaCity()
-            chinaTown._id = town.code.toLong()
+            chinaTown._id = town.code!!.toLong()
             chinaTown.code = town.code
             chinaTown.name = town.name
             chinaTown.url = town.url

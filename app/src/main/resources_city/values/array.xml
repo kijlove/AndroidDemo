@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="city_array">
+        <item>城市列表</item>
+        <item>ios选择器</item>
+        <item>三级列表</item>
+        <item>仿京东</item>
+        <item>自定义数据源</item>
+    </array>
+</resources>

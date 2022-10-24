@@ -24,7 +24,7 @@ import com.kijlee.android.demo.entity.greendao.ChinaCityDao;
  * nameInDb：在数据库中使用的别名，默认使用的是实体的类名
  * indexes：定义索引，可以跨越多个列
  * createInDb：标记创建数据库表
-
+ * greendao
  * @Id：主键 Long 型，可以通过@Id(autoincrement = true)设置自增长
  * @Property：设置一个非默认关系映射所对应的列名，默认是使用字段名，例如：@Property(nameInDb = "name")
  * @NotNull：设置数据库表当前列不能为空

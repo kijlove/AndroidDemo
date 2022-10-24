@@ -29,6 +29,9 @@
         <action
             android:id="@+id/to_fg_a_news"
             app:destination="@id/fg_a_news" />
+        <action
+            android:id="@+id/to_fg_city_select"
+            app:destination="@id/fg_city_select" />
 
     </fragment>
 
@@ -108,6 +111,12 @@
         <action
             android:id="@+id/to_fg_qmui_web_view"
             app:destination="@id/fg_qmui_web_view" />
+    </fragment>
+    <fragment
+        android:id="@+id/fg_city_select"
+        android:name="com.kijlee.android.demo.ui.main.FgCitySelect"
+        android:label="选择城市"
+        tools:layout="@layout/fg_tab1_list">
     </fragment>
 
 </navigation>

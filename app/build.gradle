@@ -4,7 +4,7 @@ plugins {
     id ('kotlin-kapt')
     id ('org.greenrobot.greendao')
     id("androidx.navigation.safeargs")
-
+    id("io.objectbox") // Apply last.
 }
 
 android {
@@ -38,6 +38,7 @@ android {
             res.srcDirs+='src/main/resources_sql'//greendao数据库
             res.srcDirs+='src/main/resources_gaode'//高德地图
             res.srcDirs+='src/main/resources_qmui'//qmui
+            res.srcDirs+='src/main/resources_city'//city
         }
     }
 
@@ -121,6 +122,9 @@ dependencies {
     implementation("com.orhanobut:logger:2.2.0")
     // 数据库
     implementation("org.greenrobot:greendao:3.3.0")
+    // objectboxVersion
+    implementation("io.objectbox:objectbox-kotlin:3.4.0")
+
     // rxbinding
     implementation 'com.jakewharton.rxbinding4:rxbinding-core:4.0.0'
     implementation 'com.jakewharton.rxbinding4:rxbinding-appcompat:4.0.0'
