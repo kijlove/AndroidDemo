@@ -11,7 +11,8 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.FgTab1Binding
-import com.kijlee.android.demo.ui.cityselect.FgCityList
+import com.kijlee.android.demo.entity.ChinaTown
+import com.kijlee.android.demo.ui.cityselect.*
 import com.kijlee.android.demo.ui.tablayout.FgTab1List
 import com.kijlee.android.demo.ui.tablayout.Vp1Adapter
 import com.orhanobut.logger.Logger
@@ -25,7 +26,7 @@ import com.orhanobut.logger.Logger
  * @Date:    2022/10/18 13:11
  * @Version:    1.0
  */
-class FgCitySelect: Fragment() , TabLayout.OnTabSelectedListener{
+class FgCitySelect: Fragment() , TabLayout.OnTabSelectedListener, SetCityTabImp {
 
     var tabList: Array<String>? = null
 
@@ -34,6 +35,10 @@ class FgCitySelect: Fragment() , TabLayout.OnTabSelectedListener{
     var item = ""
 
     var fragmentList :MutableList<Fragment> = ArrayList()
+    var fgProvinceList = FgProvinceList()
+    var fgCityList = FgCityList()
+    var fgCountyList = FgCountyList()
+    var fgTownList = FgTownList()
 
     private val binding get() = _layoutBind!!
     override fun onCreateView(
@@ -46,22 +51,27 @@ class FgCitySelect: Fragment() , TabLayout.OnTabSelectedListener{
         _layoutBind = FgTab1Binding.inflate(layoutInflater)
 
         val root: View = binding.root
-        for(item in tabList!!){
-            var fragment = FgCityList()
-            val bundle = Bundle()
-            bundle.putString(FgTabLayout.Tab_Name,item)
-            fragment.arguments = bundle
-            fragmentList.add(fragment)
-        }
+        val bundle = Bundle()
+        bundle.putString(FgTabLayout.Tab_Name,item)
+        fgProvinceList.arguments = bundle
+        fgProvinceList.setCityTabImp = this
+        fgCityList.arguments = bundle
+        fgCityList.setCityTabImp = this
+        fgCountyList.arguments = bundle
+        fgCountyList.setCityTabImp = this
+        fgTownList.arguments = bundle
+        fgTownList.setCityTabImp = this
+        fragmentList.add(fgProvinceList)
+        fragmentList.add(fgCityList)
+        fragmentList.add(fgCountyList)
+        fragmentList.add(fgTownList)
+
+
         val vp1Adapter = Vp1Adapter(requireActivity(),fragmentList)
         binding.vp.adapter = vp1Adapter
         var tablayoutMenu  = TabLayoutMediator(binding.tab,binding.vp, {tab,position->
             // 只显示文本
             tab.text = tabList!![position]
-            // 显示自定义view控件
-            val view = View.inflate(requireContext(), R.layout.layout_tab_title_view,null) as ConstraintLayout
-            view.findViewById<TextView>(R.id.tab_name).setText(tabList!![position])
-            tab.customView = view
         })
         tablayoutMenu.attach()
         binding.tab.addOnTabSelectedListener(this)
@@ -83,6 +93,27 @@ class FgCitySelect: Fragment() , TabLayout.OnTabSelectedListener{
 
     override fun onTabReselected(tab: TabLayout.Tab?) {
         Logger.e("onTabReselected-----${tab!!.text}")
+    }
+
+    // 设置信息
+    override fun setTabText(chinaTown: ChinaTown) {
+        binding.tab.getTabAt(binding.tab.selectedTabPosition)!!.setText(chinaTown.name)
+        when(binding.tab.selectedTabPosition){
+            0->{
+                fgCityList.cityId = chinaTown.code!!.toLong()
+            }
+            1->{
+                fgCountyList.cityId = chinaTown.city_id
+                fgCountyList.countyId = chinaTown.code!!.toLong()
+            }
+            2->{
+                fgTownList.cityId = chinaTown.city_id
+                fgTownList.countyId = chinaTown.county_id
+                fgTownList.townId = chinaTown.code!!.toLong()
+            }
+        }
+        binding.vp.setCurrentItem(binding.tab.selectedTabPosition+1,true)
+
     }
 
 

@@ -6,6 +6,7 @@ import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.ReItemProvinceBinding
 import com.kijlee.android.demo.entity.ChinaCity
 import com.kijlee.android.demo.entity.ChinaTown
+import com.kijlee.android.demo.utils.Smg
 
 
 /**
@@ -24,6 +25,10 @@ class CityListAdapter : BaseQuickAdapter<ChinaTown?, BaseDataBindingHolder<ReIte
         val binding: ReItemProvinceBinding? = holder!!.dataBinding
         if (binding != null) {
             binding.province = item!!
+            binding.provinceName.setOnClickListener {
+                Smg.showQMUITipDialog(holder!!.itemView.context,item.name!!,null,null)
+            }
+
         }
     }
 }

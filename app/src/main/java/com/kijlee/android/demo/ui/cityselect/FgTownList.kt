@@ -5,33 +5,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.listener.OnItemClickListener
-import com.google.gson.Gson
-import com.kijlee.android.demo.App
 import com.kijlee.android.demo.databinding.FgCityListBinding
-import com.kijlee.android.demo.entity.*
+import com.kijlee.android.demo.entity.ChinaTown
+import com.kijlee.android.demo.entity.ChinaTown_
 import com.kijlee.android.demo.entity.objectbox.ObjectBox
 import com.kijlee.android.demo.ui.main.FgTabLayout
-import com.kijlee.android.demo.utils.Smg
 import com.orhanobut.logger.Logger
 import io.objectbox.Box
 import io.objectbox.query.Query
-import org.json.JSONArray
-import java.io.BufferedReader
-import java.io.InputStreamReader
 
 /**
  * @ProjectName:    AndroidDemo
  * @Package:        com.kijlee.android.demo.ui.cityselect
- * @ClassName:      FgCityList
+ * @ClassName:      FgTownList
  * @Author:     kij
- * @Description:  城市列表
- * @Date:    2022/10/19 19:44
+ * @Description:  乡镇列表
+ * @Date:    2022/10/26 23:45
  * @Version:    1.0
  */
-class FgCityList : Fragment() {
+class FgTownList: Fragment() {
 
 
     var _layoutBind: FgCityListBinding? = null
@@ -42,14 +34,20 @@ class FgCityList : Fragment() {
 
     private val binding get() = _layoutBind!!
     var cityId = 11L
+    var countyId = 0L
+    var townId = 0L
         set(value) {
             Logger.e("value=======$value")
             if(value!=null){
                 field = value
                 chinaBox = ObjectBox.boxStore.boxFor(ChinaTown::class.java)
-                chinaQuery = chinaBox!!.query().equal(ChinaTown_.city_id,field).equal(ChinaTown_.county_id,0).order(ChinaTown_.code).build();
+                chinaQuery = chinaBox!!.query().equal(ChinaTown_.city_id,cityId)
+                    .equal(ChinaTown_.county_id,countyId)
+                    .equal(ChinaTown_.town_id,field)
+                    .order(
+                        ChinaTown_.code).build();
                 if(adapter!=null){
-                adapter!!.setList(selectProviceObjectBox())
+                    adapter!!.setList(selectProviceObjectBox())
                 }
 
             }else{
@@ -84,7 +82,11 @@ class FgCityList : Fragment() {
 
         _layoutBind = FgCityListBinding.inflate(layoutInflater)
         chinaBox = ObjectBox.boxStore.boxFor(ChinaTown::class.java)
-        chinaQuery = chinaBox!!.query().equal(ChinaTown_.city_id,cityId).equal(ChinaTown_.county_id,0).order(ChinaTown_.code).build();
+        chinaQuery = chinaBox!!.query().equal(ChinaTown_.city_id,cityId)
+            .equal(ChinaTown_.county_id,countyId)
+            .equal(ChinaTown_.town_id,townId)
+            .order(
+                ChinaTown_.code).build();
         adapter = CityListAdapter()
 
 
@@ -107,7 +109,7 @@ class FgCityList : Fragment() {
     fun onClick(){
 
         adapter!!.setOnItemClickListener { adapter, view, position ->
-
+            Logger.e("parentFragmentManager---------${parentFragmentManager.fragments[0].parentFragmentManager.fragments[1]::class.java.name}")
             val itemProvince = adapter.getItem(position)  as ChinaTown
             setCityTabImp!!.setTabText(itemProvince)
         }
