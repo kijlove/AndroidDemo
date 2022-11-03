@@ -10,6 +10,7 @@ import com.kijlee.android.demo.entity.ChinaTown
 import com.kijlee.android.demo.entity.ChinaTown_
 import com.kijlee.android.demo.entity.objectbox.ObjectBox
 import com.kijlee.android.demo.ui.main.FgTabLayout
+import com.kijlee.android.demo.utils.Smg
 import com.orhanobut.logger.Logger
 import io.objectbox.Box
 import io.objectbox.query.Query
@@ -111,7 +112,8 @@ class FgTownList: Fragment() {
         adapter!!.setOnItemClickListener { adapter, view, position ->
             Logger.e("parentFragmentManager---------${parentFragmentManager.fragments[0].parentFragmentManager.fragments[1]::class.java.name}")
             val itemProvince = adapter.getItem(position)  as ChinaTown
-            setCityTabImp!!.setTabText(itemProvince)
+            Smg.showQMUITipDialog(requireContext(),itemProvince.name!!,null,null)
+
         }
 
 

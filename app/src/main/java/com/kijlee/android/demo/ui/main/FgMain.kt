@@ -84,6 +84,9 @@ class FgMain : Fragment() {
                 "城市列表选择" -> {
                     view.findNavController().navigate(R.id.to_fg_city_select,bundle)
                 }
+                "QMUI" -> {
+                    view.findNavController().navigate(R.id.to_fg_qmui_index,bundle)
+                }
             }
         }
 

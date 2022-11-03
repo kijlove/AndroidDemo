@@ -32,6 +32,9 @@
         <action
             android:id="@+id/to_fg_city_select"
             app:destination="@id/fg_city_select" />
+        <action
+            android:id="@+id/to_fg_qmui_index"
+            app:destination="@id/fg_qmui_index" />
 
     </fragment>
 
@@ -112,11 +115,19 @@
             android:id="@+id/to_fg_qmui_web_view"
             app:destination="@id/fg_qmui_web_view" />
     </fragment>
+
     <fragment
         android:id="@+id/fg_city_select"
         android:name="com.kijlee.android.demo.ui.main.FgCitySelect"
         android:label="选择城市"
         tools:layout="@layout/fg_tab1_list">
+    </fragment>
+
+    <fragment
+        android:id="@+id/fg_qmui_index"
+        android:name="com.kijlee.android.demo.ui.qmui.FgQmuiIndex"
+        android:label="QMUI"
+        tools:layout="@layout/fg_qmui_index">
     </fragment>
 
 </navigation>

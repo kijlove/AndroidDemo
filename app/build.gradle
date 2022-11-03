@@ -140,6 +140,7 @@ dependencies {
     implementation 'com.qmuiteam:qmui:2.0.0-alpha10'
     implementation "com.qmuiteam:arch:2.0.0-alpha10"
     kapt "com.qmuiteam:arch-compiler:2.0.0-alpha10" // use annotationProcessor if java
+
     // 高德地图
     implementation files('libs/Android_Map3D_SDK_V9.1.0_20220210.jar')
     implementation fileTree(include: '*.jar', dir: 'libs')
