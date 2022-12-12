@@ -4,7 +4,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.ReItemProvinceBinding
-import com.kijlee.android.demo.entity.ChinaCity
 import com.kijlee.android.demo.entity.ChinaTown
 import com.kijlee.android.demo.utils.Smg
 

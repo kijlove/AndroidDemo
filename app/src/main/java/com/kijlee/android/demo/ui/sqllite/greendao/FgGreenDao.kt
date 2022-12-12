@@ -1,7 +1,6 @@
 package com.kijlee.android.demo.ui.sqllite.greendao
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,8 +13,6 @@ import com.kijlee.android.demo.entity.ChinaTown
 import com.kijlee.android.demo.entity.greendao.DaoSession
 import com.kijlee.android.demo.ui.main.FgSqlLite
 import com.orhanobut.logger.Logger
-import io.reactivex.android.schedulers.AndroidSchedulers
-import org.greenrobot.greendao.rx.RxDao
 import org.json.JSONArray
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -93,7 +90,8 @@ class FgGreenDao : Fragment() {
     //查询省份
     fun selectProvice() :MutableList<ChinaCity>{
         val rxDao = (requireActivity().application as App).getDaoSession()
-        var provinces :MutableList<ChinaCity> = rxDao.loadAll<ChinaCity,ChinaCity>(ChinaCity::class.java)
+        var provinces :MutableList<ChinaCity> = rxDao.loadAll<ChinaCity, ChinaCity>(
+            ChinaCity::class.java)
         var stringBuilder = StringBuilder()
         for (item in provinces){
             stringBuilder.append(item.name).append("\n")
@@ -110,7 +108,8 @@ class FgGreenDao : Fragment() {
         rxDao.runInTx {
             for (i in 0 until citys.length()) {
                 val provinces = Gson().fromJson(citys[i].toString(), ChinaTown::class.java)
-                var chinaProvince = ChinaCity()
+                var chinaProvince =
+                    ChinaCity()
                 chinaProvince._id = provinces.code!!.toLong()
                 chinaProvince.code = provinces.code
                 chinaProvince.name = provinces.name
@@ -126,7 +125,8 @@ class FgGreenDao : Fragment() {
     fun addCity(rxDao: DaoSession, citys:MutableList<ChinaTown>, provinceId:Long){
         for(j in 0 until citys.size){
             val city = citys[j]
-            var chinaCity = ChinaCity()
+            var chinaCity =
+                ChinaCity()
             chinaCity._id = city.code!!.toLong()
             chinaCity.code = city.code
             chinaCity.name = city.name
@@ -137,11 +137,12 @@ class FgGreenDao : Fragment() {
         }
     }
     //添加县城
-    fun addCounty(rxDao: DaoSession,countys:MutableList<ChinaTown>,provinceId:Long,cityId:Long){
+    fun addCounty(rxDao: DaoSession, countys:MutableList<ChinaTown>, provinceId:Long, cityId:Long){
 
         for(k in 0 until countys.size){
             val county = countys[k]
-            var chinaCounty = ChinaCity()
+            var chinaCounty =
+                ChinaCity()
             chinaCounty._id = county.code!!.toLong()
             chinaCounty.code = county.code
             chinaCounty.name = county.name
@@ -153,11 +154,12 @@ class FgGreenDao : Fragment() {
         }
     }
     // 添加乡镇
-    fun addTown(rxDao: DaoSession,towns:MutableList<ChinaTown>,provinceId:Long,cityId:Long,countyId:Long){
+    fun addTown(rxDao: DaoSession, towns:MutableList<ChinaTown>, provinceId:Long, cityId:Long, countyId:Long){
 
         for(l in 0 until towns.size){
             val town = towns[l]
-            var chinaTown = ChinaCity()
+            var chinaTown =
+                ChinaCity()
             chinaTown._id = town.code!!.toLong()
             chinaTown.code = town.code
             chinaTown.name = town.name

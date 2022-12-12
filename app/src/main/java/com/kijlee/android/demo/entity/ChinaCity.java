@@ -1,5 +1,6 @@
 package com.kijlee.android.demo.entity;
 
+
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.NotNull;
@@ -24,7 +25,7 @@ import com.kijlee.android.demo.entity.greendao.ChinaCityDao;
  * nameInDb：在数据库中使用的别名，默认使用的是实体的类名
  * indexes：定义索引，可以跨越多个列
  * createInDb：标记创建数据库表
- * greendao
+
  * @Id：主键 Long 型，可以通过@Id(autoincrement = true)设置自增长
  * @Property：设置一个非默认关系映射所对应的列名，默认是使用字段名，例如：@Property(nameInDb = "name")
  * @NotNull：设置数据库表当前列不能为空
@@ -64,7 +65,7 @@ public class ChinaCity {
     private transient ChinaCityDao myDao;
     @Generated(hash = 1448753218)
     public ChinaCity(long _id, @NotNull String code, @NotNull String name,
-            String url, long city_id, long county_id, long town_id) {
+                     String url, long city_id, long county_id, long town_id) {
         this._id = _id;
         this.code = code;
         this.name = name;

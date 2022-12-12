@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -13,7 +11,6 @@ import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.FgTab1Binding
 import com.kijlee.android.demo.entity.ChinaTown
 import com.kijlee.android.demo.ui.cityselect.*
-import com.kijlee.android.demo.ui.tablayout.FgTab1List
 import com.kijlee.android.demo.ui.tablayout.Vp1Adapter
 import com.orhanobut.logger.Logger
 

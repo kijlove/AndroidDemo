@@ -12,7 +12,6 @@ import com.kijlee.android.demo.entity.ChinaTown
 import com.kijlee.android.demo.entity.ChinaTown_
 import com.kijlee.android.demo.entity.objectbox.ObjectBox
 import com.kijlee.android.demo.ui.main.FgTabLayout
-import com.kijlee.android.demo.utils.Smg
 import com.kijlee.android.demo.databinding.FgCityListBinding
 import com.orhanobut.logger.Logger
 import io.objectbox.Box
@@ -109,7 +108,8 @@ class FgProvinceList : Fragment() {
     //查询省份 green_dao
     fun selectProvice() :MutableList<ChinaCity>{
         val rxDao = (requireActivity().application as App).getDaoSession()
-        var provinces :MutableList<ChinaCity> = rxDao.loadAll<ChinaCity, ChinaCity>(ChinaCity::class.java)
+        var provinces :MutableList<ChinaCity> = rxDao.loadAll<ChinaCity, ChinaCity>(
+            ChinaCity::class.java)
         var stringBuilder = StringBuilder()
         for (item in provinces){
             stringBuilder.append(item.name).append("\n")

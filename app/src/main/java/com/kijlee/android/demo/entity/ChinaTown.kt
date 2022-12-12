@@ -4,6 +4,7 @@ import io.objectbox.annotation.Entity
 import io.objectbox.annotation.Id
 import org.greenrobot.greendao.annotation.NotNull
 import org.greenrobot.greendao.annotation.ToMany
+
 import java.io.Serializable
 
 /**

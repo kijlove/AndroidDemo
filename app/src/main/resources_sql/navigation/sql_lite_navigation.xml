@@ -18,6 +18,9 @@ android:id="@+id/sql_lite_navigation">
     <action
         android:id="@+id/to_object_box"
         app:destination="@id/object_box_fragment"/>
+    <action
+        android:id="@+id/to_litepal"
+        app:destination="@id/fg_litepal"/>
 </fragment>
 <fragment
     android:id="@+id/greendao_fragment"
@@ -33,6 +36,17 @@ android:id="@+id/sql_lite_navigation">
 <fragment
     android:id="@+id/object_box_fragment"
     android:name="com.kijlee.android.demo.ui.sqllite.objectbox.FgObjectBox"
+    android:label="ObjectBox"
+    tools:layout="@layout/fg_object_box">
+    <argument
+        android:name="sql_name"
+        app:argType="string"
+        android:defaultValue=""/>
+
+</fragment>
+<fragment
+    android:id="@+id/fg_litepal"
+    android:name="com.kijlee.android.demo.ui.sqllite.litepal.FgLitePal"
     android:label="ObjectBox"
     tools:layout="@layout/fg_object_box">
     <argument

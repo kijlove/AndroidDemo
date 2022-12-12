@@ -4,6 +4,7 @@ import androidx.multidex.MultiDexApplication
 import com.beardedhen.androidbootstrap.TypefaceProvider
 import com.kijlee.android.demo.entity.greendao.DaoMaster
 import com.kijlee.android.demo.entity.greendao.DaoSession
+
 import com.kijlee.android.demo.net.Api.Companion.HEALTH_NAME
 import com.kijlee.android.demo.net.Api.Companion.HEALTH_URL_DOMAIN
 import com.kijlee.android.demo.entity.objectbox.ObjectBox
@@ -11,6 +12,7 @@ import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.qmuiteam.qmui.arch.QMUISwipeBackActivityManager
+import org.litepal.LitePal
 
 
 /**
@@ -31,7 +33,7 @@ class App: MultiDexApplication() {
         // setup default typefaces 字体
         TypefaceProvider.registerDefaultIconSets()
         // greendao数据库
-        initDao()
+//        initDao()
 
         //日志打印
         Logger.addLogAdapter(AndroidLogAdapter())
@@ -40,6 +42,7 @@ class App: MultiDexApplication() {
         //将每个 BaseUrl 进行初始化,运行时可以随时改变 DOMAIN_NAME 对应的值,从而达到切换 BaseUrl 的效果
         RetrofitUrlManager.getInstance().putDomain(HEALTH_NAME, HEALTH_URL_DOMAIN)
         ObjectBox.init(this)
+//        LitePal.initialize(this);
     }
 
     // 具体类 需要makebuild生成

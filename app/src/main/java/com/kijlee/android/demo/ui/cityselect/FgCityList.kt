@@ -5,22 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.listener.OnItemClickListener
-import com.google.gson.Gson
-import com.kijlee.android.demo.App
 import com.kijlee.android.demo.databinding.FgCityListBinding
-import com.kijlee.android.demo.entity.*
+import com.kijlee.android.demo.entity.ChinaTown
+import com.kijlee.android.demo.entity.ChinaTown_
 import com.kijlee.android.demo.entity.objectbox.ObjectBox
 import com.kijlee.android.demo.ui.main.FgTabLayout
-import com.kijlee.android.demo.utils.Smg
 import com.orhanobut.logger.Logger
 import io.objectbox.Box
 import io.objectbox.query.Query
-import org.json.JSONArray
-import java.io.BufferedReader
-import java.io.InputStreamReader
 
 /**
  * @ProjectName:    AndroidDemo

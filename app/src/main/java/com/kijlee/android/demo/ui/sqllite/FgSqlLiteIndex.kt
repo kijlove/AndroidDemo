@@ -60,11 +60,16 @@ class FgSqlLiteIndex : Fragment() {
             var bundle = Bundle()
             bundle.putString(FgSqlLite.SqlLite_Name, demoName)
             when(it.id){
-                R.id.to_green_dao->{//GreenDao数据库使用
+                R.id.to_green_dao->{// GreenDao数据库使用
                     it.findNavController().navigate(R.id.to_green_dao, bundle)
                 }
-                R.id.to_object_box->{//GreenDao数据库使用
+                R.id.to_object_box->{// ObjectBox数据库使用
                     it.findNavController().navigate(R.id.to_object_box, bundle)
+                }
+                R.id.to_litepal->{// LitePal数据库使用
+                    val dataManage = DBManager(requireContext())
+                    dataManage.copyDataToLitepal()
+                    it.findNavController().navigate(R.id.to_litepal, bundle)
                 }
             }
         }

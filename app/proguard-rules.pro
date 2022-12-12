@@ -44,3 +44,7 @@ public static java.lang.String TABLENAME;
 
 -keep class com.qmuiteam.qmui.arch.scheme.SchemeMap {*;}
 -keep class com.qmuiteam.qmui.arch.scheme.SchemeMapImpl {*;}
+
+# litepal
+-keep class org.litepal.** {*;}
+-keep class * extends org.litepal.crud.LitePalSupport {*;}

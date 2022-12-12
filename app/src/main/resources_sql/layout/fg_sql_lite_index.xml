@@ -22,6 +22,11 @@
             style="@style/home_button"
             android:text="ObjectBox"
             android:onClick="@{onClickListener}" />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/to_litepal"
+            style="@style/home_button"
+            android:text="LitePal"
+            android:onClick="@{onClickListener}" />
 
     </LinearLayout>
 </layout>

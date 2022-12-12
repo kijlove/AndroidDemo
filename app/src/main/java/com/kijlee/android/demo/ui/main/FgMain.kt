@@ -1,5 +1,6 @@
 package com.kijlee.android.demo.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.LayoutRecyclerViewBinding
+import com.kijlee.android.demo.ui.workmanager.WorkManagerActivity
 import com.orhanobut.logger.Logger
 
 /**
@@ -86,6 +88,9 @@ class FgMain : Fragment() {
                 }
                 "QMUI" -> {
                     view.findNavController().navigate(R.id.to_fg_qmui_index,bundle)
+                }
+                "workmanager" -> {
+                    startActivity(Intent(activity,WorkManagerActivity::class.java))
                 }
             }
         }

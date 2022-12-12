@@ -9,7 +9,6 @@ import com.google.gson.Gson
 import com.kijlee.android.demo.databinding.FgObjectBoxBinding
 import com.kijlee.android.demo.entity.ChinaTown
 import com.kijlee.android.demo.entity.ChinaTown_
-import com.kijlee.android.demo.entity.ChinaTown_.town
 import com.kijlee.android.demo.entity.objectbox.ObjectBox
 import com.kijlee.android.demo.ui.cityselect.CityListAdapter
 import com.kijlee.android.demo.ui.main.FgSqlLite

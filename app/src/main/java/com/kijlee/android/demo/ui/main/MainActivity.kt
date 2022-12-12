@@ -10,6 +10,7 @@ import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.ActivityMainBinding
 
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.kijlee.android.demo.entity.objectbox.ObjectBox
 
 class MainActivity : AppCompatActivity() {
     var _binding: ActivityMainBinding? = null
@@ -19,8 +20,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding =  ActivityMainBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
+
 
     }
 
