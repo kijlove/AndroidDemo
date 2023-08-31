@@ -67,7 +67,8 @@ class Tab1ListAdapter constructor( data:MutableList<ClickEntity>) :
             ClickEntity.TYPE_ITEM_2->{
                 // 获取 Binding
                 val binding =(holder.dataBinding as ReItem2Binding?)!!
-                binding.name2 = "ReItem2Bindingitem"
+                binding.title = "ReItem2--title"
+                binding.subTitle = "ReItem2--subTitle"
                 binding.executePendingBindings()
             }
             ClickEntity.TYPE_ITEM_3->{

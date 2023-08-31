@@ -113,7 +113,7 @@ class FgGreenDao : Fragment() {
                 chinaProvince._id = provinces.code!!.toLong()
                 chinaProvince.code = provinces.code
                 chinaProvince.name = provinces.name
-                chinaProvince.url = provinces.url
+
                 // 添加城市
                 addCity(rxDao,provinces.city!!,chinaProvince._id)
 
@@ -130,7 +130,6 @@ class FgGreenDao : Fragment() {
             chinaCity._id = city.code!!.toLong()
             chinaCity.code = city.code
             chinaCity.name = city.name
-            chinaCity.url = city.url
             chinaCity.city_id = provinceId
             addCounty(rxDao,city.county!!,provinceId,chinaCity._id)
             rxDao.insert(chinaCity)
@@ -146,7 +145,6 @@ class FgGreenDao : Fragment() {
             chinaCounty._id = county.code!!.toLong()
             chinaCounty.code = county.code
             chinaCounty.name = county.name
-            chinaCounty.url = county.url
             chinaCounty.city_id = provinceId
             chinaCounty.county_id = cityId
             addTown(rxDao,county.town!!,provinceId,cityId,chinaCounty._id)
@@ -163,7 +161,6 @@ class FgGreenDao : Fragment() {
             chinaTown._id = town.code!!.toLong()
             chinaTown.code = town.code
             chinaTown.name = town.name
-            chinaTown.url = town.url
             chinaTown.city_id = provinceId
             chinaTown.county_id = cityId
             chinaTown.town_id = countyId

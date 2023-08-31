@@ -27,4 +27,8 @@ class ChinaTownLitePal constructor(code:String?,name:String?,city_id: Long?,coun
         this.county_id = county_id
         this.town_id = town_id
     }
+
+    override fun toString(): String {
+        return this.name.toString()
+    }
 }

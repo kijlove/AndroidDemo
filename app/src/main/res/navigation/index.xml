@@ -35,6 +35,21 @@
         <action
             android:id="@+id/to_fg_qmui_index"
             app:destination="@id/fg_qmui_index" />
+        <action
+            android:id="@+id/to_fragment_save"
+            app:destination="@id/fragment_save" />
+        <action
+            android:id="@+id/to_fragment_net_nav"
+            app:destination="@id/fragment_net_nav" />
+        <action
+            android:id="@+id/to_fragment_folder_index"
+            app:destination="@id/fragment_folder_index" />
+        <action
+            android:id="@+id/to_fg_recycler_view_demo"
+            app:destination="@id/fg_recycler_view_demo" />
+        <action
+            android:id="@+id/to_fragment_camera"
+            app:destination="@id/fragment_camera" />
 
     </fragment>
 
@@ -129,5 +144,33 @@
         android:label="QMUI"
         tools:layout="@layout/fg_qmui_index">
     </fragment>
+
+    <fragment
+        android:id="@+id/fragment_folder_index"
+        android:name="com.kijlee.android.demo.ui.folder.FragmentFolderIndex"
+        android:label="文件处理"
+        tools:layout="@layout/fragment_folder_index">
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/fg_recycler_view_demo"
+        android:name="com.kijlee.android.demo.ui.recycler.FgRecyclerViewDemo"
+        android:label="文件处理"
+        tools:layout="@layout/fragment_folder_index">
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_camera"
+        android:name="com.kijlee.android.demo.ui.camera.FragmentCamera"
+        android:label="相机功能"
+        tools:layout="@layout/fragment_camera">
+    </fragment>
+
+    <include
+        app:graph="@navigation/fragment_save" />
+
+    <include
+        app:graph="@navigation/fragment_net_nav" />
 
 </navigation>

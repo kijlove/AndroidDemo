@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/fragment_apache_http_demo"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_net_nav">
+
+    <fragment
+        android:id="@+id/fragment_apache_http_demo"
+        android:name="com.kijlee.android.demo.ui.netdemo.FragmentApacheHttpDemo"
+        android:label="QMUI"
+        tools:layout="@layout/fragment_net_demo">
+    </fragment>
+</navigation>

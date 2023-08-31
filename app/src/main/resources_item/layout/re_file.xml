@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="file_name"
+            type="String" />
+    </data>
+
+
+
+    <com.beardedhen.androidbootstrap.AwesomeTextView
+        style="@style/home_button"
+        android:id="@+id/text1"
+        app:bootstrapSize="xl"
+        android:text="@{file_name}"
+        />
+</layout>

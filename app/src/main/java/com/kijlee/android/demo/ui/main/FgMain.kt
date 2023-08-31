@@ -50,14 +50,9 @@ class FgMain : Fragment() {
         recyclerView.adapter = adapter
         adapter.setOnItemClickListener { adapter, view, position ->
             val demoName = adapter.getItem(position).toString()
-            var bundle = Bundle()
+            val bundle = Bundle()
+            bundle.putString(Item_Id, demoName)
 
-            bundle.putString(
-                Item_Id,
-                demoName
-            )
-
-            Toast.makeText(requireContext(), "$demoName$position", Toast.LENGTH_SHORT).show()
             when (demoName) {
                 "BootStrapper" -> {
                     Logger.e("BootStrapper");
@@ -91,6 +86,21 @@ class FgMain : Fragment() {
                 }
                 "workmanager" -> {
                     startActivity(Intent(activity,WorkManagerActivity::class.java))
+                }
+                "测试Fragment恢复" -> {
+                    view.findNavController().navigate(R.id.to_fragment_save,bundle)
+                }
+                "Android网络请求" -> {
+                    view.findNavController().navigate(R.id.to_fragment_net_nav,bundle)
+                }
+                "Android文件处理" -> {
+                    view.findNavController().navigate(R.id.to_fragment_folder_index,bundle)
+                }
+                "recycler知识点" -> {
+                    view.findNavController().navigate(R.id.to_fg_recycler_view_demo,bundle)
+                }
+                "相机功能" -> {
+                    view.findNavController().navigate(R.id.to_fragment_camera,bundle)
                 }
             }
         }

@@ -41,8 +41,8 @@ class App: MultiDexApplication() {
         RetrofitUrlManager.getInstance().setDebug(true)
         //将每个 BaseUrl 进行初始化,运行时可以随时改变 DOMAIN_NAME 对应的值,从而达到切换 BaseUrl 的效果
         RetrofitUrlManager.getInstance().putDomain(HEALTH_NAME, HEALTH_URL_DOMAIN)
-        ObjectBox.init(this)
-//        LitePal.initialize(this);
+//        ObjectBox.init(this)
+        LitePal.initialize(this);
     }
 
     // 具体类 需要makebuild生成

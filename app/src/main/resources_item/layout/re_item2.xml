@@ -3,18 +3,31 @@
 
     <data>
         <variable
-            name="name2"
+            name="title"
+            type="java.lang.String" />
+        <variable
+            name="sub_title"
             type="java.lang.String" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="vertical"
         >
-        <TextView
-            android:id="@+id/text2"
+        <com.beardedhen.androidbootstrap.AwesomeTextView
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/default_padding"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@{title}" />
+        <com.beardedhen.androidbootstrap.AwesomeTextView
+            android:id="@+id/sub_title_text"
+            android:gravity="left"
+            android:layout_marginLeft="@dimen/default_padding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{name2}" />
+            android:text="@{sub_title}" />
     </LinearLayout>
 </layout>
