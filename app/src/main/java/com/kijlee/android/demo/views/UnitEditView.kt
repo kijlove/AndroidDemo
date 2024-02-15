@@ -51,7 +51,7 @@ class UnitEditView(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) :
     }
 
     @RequiresApi(Build.VERSION_CODES.P)
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         if (myUnit == null) {
             myUnit = ""
         }

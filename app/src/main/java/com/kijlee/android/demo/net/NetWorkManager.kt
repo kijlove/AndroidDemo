@@ -1,16 +1,9 @@
 package com.kijlee.android.demo.net
 
-import android.content.Intent
-import androidx.databinding.ktx.BuildConfig
-import com.kijlee.android.demo.net.Api.Companion.APP_DEFAULT_DOMAIN
-import com.kijlee.android.demo.net.Api.Companion.APP_DEFAULT_NAME
-import com.kijlee.android.demo.net.Api.Companion.APP_Luffy_City
 import com.orhanobut.logger.Logger
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 import okhttp3.OkHttpClient
-import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
-import okio.Buffer
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory

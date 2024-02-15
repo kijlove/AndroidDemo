@@ -2,12 +2,9 @@ package com.kijlee.android.demo
 
 import androidx.multidex.MultiDexApplication
 import com.beardedhen.androidbootstrap.TypefaceProvider
-import com.kijlee.android.demo.entity.greendao.DaoMaster
-import com.kijlee.android.demo.entity.greendao.DaoSession
 
 import com.kijlee.android.demo.net.Api.Companion.HEALTH_NAME
 import com.kijlee.android.demo.net.Api.Companion.HEALTH_URL_DOMAIN
-import com.kijlee.android.demo.entity.objectbox.ObjectBox
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
@@ -46,16 +43,7 @@ class App: MultiDexApplication() {
     }
 
     // 具体类 需要makebuild生成
-    fun initDao() {
-        val helper = DaoMaster.DevOpenHelper(this, "china_town")
-        val db = helper.writableDb
-        daoSession = DaoMaster(db).newSession()
-    }
 
-        private var daoSession: DaoSession? = null
-        open fun getDaoSession(): DaoSession {
-            return daoSession!!
-        }
     companion object {
         const val TAG = "OBXSync"
     }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/fragment_camera_index"
+    android:id="@+id/camera_nav">
+    <fragment
+        android:id="@+id/fragment_camera_index"
+        android:name="com.kijlee.android.demo.ui.camera.FragmentCameraIndex"
+        android:label="相机界面分发"
+        tools:layout="@layout/fragment_camera_index">
+        <action
+            android:id="@+id/to_fragment_zxing_demo"
+            app:destination="@id/fragment_zxing_demo" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_zxing_demo"
+        android:name="com.kijlee.android.demo.ui.camera.FragmentZxingDemo"
+        android:label="二维码"
+        tools:layout="@layout/fragment_zxing_demo">
+    </fragment>
+
+</navigation>

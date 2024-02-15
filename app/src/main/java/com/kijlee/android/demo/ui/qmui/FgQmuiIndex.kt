@@ -109,7 +109,7 @@ class FgQmuiIndex : Fragment() {
             builder.release()
             addView(globalBtn, globalBtnLp)
             globalBtnOffsetHelper = QMUIViewOffsetHelper(globalBtn)
-            touchSlop = ViewConfiguration.get(context).scaledTouchSlop
+            touchSlop = ViewConfiguration.get(getContext()).scaledTouchSlop
         }
 
         override  fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {

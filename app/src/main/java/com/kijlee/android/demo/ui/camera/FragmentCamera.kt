@@ -1,5 +1,6 @@
 package com.kijlee.android.demo.ui.camera
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,10 +26,6 @@ class FragmentCamera : Fragment() {
     // onDestroyView.
     private val binding get() = _layoutBind!!
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _layoutBind = null
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -46,23 +43,21 @@ class FragmentCamera : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
+
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
         _layoutBind = FragmentCameraBinding.inflate(layoutInflater)
         val root: View = binding.root
-
-
         return root
     }
 
     //fun that print a random number
 
-
-
     override fun onDestroyView() {
         super.onDestroyView()
         _layoutBind = null
     }
+
 }

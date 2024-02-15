@@ -48,3 +48,5 @@ public static java.lang.String TABLENAME;
 # litepal
 -keep class org.litepal.** {*;}
 -keep class * extends org.litepal.crud.LitePalSupport {*;}
+# 权限
+-keep class com.hjq.permissions.** {*;}

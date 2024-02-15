@@ -160,6 +160,7 @@
         tools:layout="@layout/fragment_folder_index">
     </fragment>
 
+
     <fragment
         android:id="@+id/fragment_camera"
         android:name="com.kijlee.android.demo.ui.camera.FragmentCamera"

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.LayoutRecyclerViewBinding
+import com.kijlee.android.demo.ui.compose.ComposeActivity
 import com.kijlee.android.demo.ui.workmanager.WorkManagerActivity
 import com.orhanobut.logger.Logger
 
@@ -101,6 +102,9 @@ class FgMain : Fragment() {
                 }
                 "相机功能" -> {
                     view.findNavController().navigate(R.id.to_fragment_camera,bundle)
+                }
+                "Compose"->{
+                    startActivity(Intent(requireContext(), ComposeActivity::class.java))
                 }
             }
         }

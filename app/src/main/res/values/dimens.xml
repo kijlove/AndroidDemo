@@ -15,4 +15,6 @@
     <dimen name="reflow_text_description_size">13sp</dimen>
     <dimen name="divider_height">5px</dimen>
 
+    <dimen name="standard_padding">8dip</dimen>
+    <dimen name="half_padding">4dip</dimen>
 </resources>

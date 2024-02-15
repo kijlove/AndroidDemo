@@ -4,9 +4,6 @@
 
     <data>
 
-        <variable
-            name="province"
-            type="com.kijlee.android.demo.entity.ChinaTown" />
 
     </data>
 
@@ -21,7 +18,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:padding="@dimen/activity_horizontal_margin"
-            android:text="@{province.name}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </androidx.constraintlayout.widget.ConstraintLayout>
