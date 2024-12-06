@@ -22,7 +22,7 @@
             app:destination="@id/tablayout_fragment"/>
         <action
             android:id="@+id/show_sql_lite"
-            app:destination="@id/sql_lite_fragment"/>
+            app:destination="@id/sql_lite_navigation"/>
         <action
             android:id="@+id/to_gaode"
             app:destination="@id/fg_gaode" />
@@ -50,6 +50,13 @@
         <action
             android:id="@+id/to_fragment_camera"
             app:destination="@id/fragment_camera" />
+        <action
+            android:id="@+id/to_my_view_nav"
+            app:destination="@id/my_view_nav" />
+
+        <action
+            android:id="@+id/to_screen_record_nav"
+            app:destination="@id/screen_record_nav" />
 
     </fragment>
 
@@ -85,6 +92,7 @@
             app:argType="string"
             android:defaultValue=""/>
     </fragment>
+
     <fragment
         android:id="@+id/sql_lite_fragment"
         android:name="com.kijlee.android.demo.ui.main.FgSqlLite"
@@ -106,6 +114,7 @@
             app:argType="string"
             android:defaultValue=""/>
     </fragment>
+
     <fragment
         android:id="@+id/fg_qmui_web_view"
         android:name="com.kijlee.android.demo.ui.qmui.FgQmuiWebView"
@@ -152,14 +161,12 @@
         tools:layout="@layout/fragment_folder_index">
     </fragment>
 
-
     <fragment
         android:id="@+id/fg_recycler_view_demo"
         android:name="com.kijlee.android.demo.ui.recycler.FgRecyclerViewDemo"
-        android:label="文件处理"
+        android:label="recyclerview"
         tools:layout="@layout/fragment_folder_index">
     </fragment>
-
 
     <fragment
         android:id="@+id/fragment_camera"
@@ -173,5 +180,14 @@
 
     <include
         app:graph="@navigation/fragment_net_nav" />
+
+    <include
+        app:graph="@navigation/my_view_nav" />
+
+    <include
+        app:graph="@navigation/screen_record_nav" />
+
+    <include
+        app:graph="@navigation/sql_lite_navigation" />
 
 </navigation>

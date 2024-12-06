@@ -33,6 +33,13 @@
             app:roundedCorners="true"
             app:showOutline="false"
             />
+
+        <com.beardedhen.androidbootstrap.AwesomeTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/message_text"
+            app:bootstrapBrand="primary"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

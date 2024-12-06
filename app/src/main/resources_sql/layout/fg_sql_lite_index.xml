@@ -25,7 +25,7 @@
         <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/to_litepal"
             style="@style/home_button"
-            android:text="LitePal"
+            android:text="Android Room"
             android:onClick="@{onClickListener}" />
 
     </LinearLayout>

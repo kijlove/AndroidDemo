@@ -1,12 +1,15 @@
 package com.kijlee.android.demo.ui.sqllite
 
+//import org.litepal.LitePal
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.os.Environment
-import com.kijlee.android.demo.entity.sql.litepal.ChinaTownLitePal
-import com.orhanobut.logger.Logger
-import org.litepal.LitePal
-import java.io.*
+import com.kijlee.android.demo.entity.sql.room.ChinaCityRoom
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStream
+import java.io.OutputStream
 
 /**
  * @ProjectName:    AndroidDemo
@@ -49,7 +52,7 @@ class DBManager constructor(context: Context) {
             val inputStream: InputStream
             val os: OutputStream
             try {
-                inputStream = mContext!!.getResources().getAssets().open(DB_NAME_V1)
+                inputStream = mContext!!.resources.assets.open(DB_NAME_V1)
                 os = FileOutputStream(dbFile)
                 val buffer = ByteArray(BUFFER_SIZE)
                 var length: Int
@@ -66,23 +69,25 @@ class DBManager constructor(context: Context) {
     }
 
 
-    fun copyDataToLitepal(){
+    fun copyDataToLitepal():MutableList<ChinaCityRoom> {
         val db = SQLiteDatabase.openOrCreateDatabase(DB_PATH + LATEST_DB_NAME, null)
         val cursor = db.rawQuery("select * from CHINA_CITY", null)
-        val result: MutableList<ChinaTownLitePal> = ArrayList<ChinaTownLitePal>()
-        var city: ChinaTownLitePal
+        val result: MutableList<ChinaCityRoom> = ArrayList<ChinaCityRoom>()
+        var city: ChinaCityRoom
         while (cursor.moveToNext()) {
-            var code = cursor.getString(cursor.getColumnIndexOrThrow("CODE"))
-            var name = cursor.getString(cursor.getColumnIndexOrThrow("NAME"))
-            var city_id = cursor.getLong(cursor.getColumnIndexOrThrow("CITY_ID"))
-            var county_id = cursor.getLong(cursor.getColumnIndexOrThrow("COUNTY_ID"))
-            var town_id = cursor.getLong(cursor.getColumnIndexOrThrow("TOWN_ID"))
-            city = ChinaTownLitePal(code, name, city_id, county_id,town_id)
+            val code = cursor.getString(cursor.getColumnIndexOrThrow("CODE"))
+            val name = cursor.getString(cursor.getColumnIndexOrThrow("NAME"))
+            val city_id = cursor.getInt(cursor.getColumnIndexOrThrow("CITY_ID"))
+            val county_id = cursor.getInt(cursor.getColumnIndexOrThrow("COUNTY_ID"))
+            val town_id = cursor.getInt(cursor.getColumnIndexOrThrow("TOWN_ID"))
+            city = ChinaCityRoom(code = code, name = name, cityId = city_id, countyId = county_id, townId = town_id)
             result.add(city)
+
         }
-        LitePal.saveAll(result)
+//        LitePal.saveAll(result)
         cursor.close()
         db.close()
+        return result
     }
 
 }

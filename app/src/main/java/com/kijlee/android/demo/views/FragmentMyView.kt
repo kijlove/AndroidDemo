@@ -1,42 +1,42 @@
-package com.kijlee.android.demo.ui.sqllite.litepal
+package com.kijlee.android.demo.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.kijlee.android.demo.databinding.FgLitepalBinding
-import com.kijlee.android.demo.ui.main.FgSqlLite
-
-//import org.litepal.LitePal
+import com.kijlee.android.demo.databinding.FragmentMyViewBinding
+import com.kijlee.android.demo.ui.main.FgMain
 
 /**
  * @ProjectName:    AndroidDemo
- * @Package:        com.kijlee.android.demo.ui.sqllite.litepal
- * @ClassName:      FgLItePal
+ * @Package:        com.kijlee.android.demo.views
+ * @ClassName:      FragmentMyView
  * @Author:     kij
- * @Description:  litepal练习数据库
- * @Date:    2022/12/1 22:56
+ * @Description:  自定义View
+ * @Date:    2024/2/22 22:22
  * @Version:    1.0
  */
-class FgLitePal : Fragment() {
-
-
-    var _layoutBind: FgLitepalBinding? = null
+class FragmentMyView : Fragment() {
+    var _layoutBind: FragmentMyViewBinding? = null
     var item = ""
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _layoutBind!!
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _layoutBind = null
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
-            if (it.containsKey(FgSqlLite.SqlLite_Name)) {
+            if (it.containsKey(FgMain.Item_Id)) {
                 // Load the placeholder content specified by the fragment
                 // arguments. In a real-world scenario, use a Loader
                 // to load content from a content provider.
-                item = it.getString(FgSqlLite.SqlLite_Name).toString()
+                item = it.getString(FgMain.Item_Id).toString()
             }
         }
     }
@@ -47,23 +47,19 @@ class FgLitePal : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _layoutBind = FgLitepalBinding.inflate(layoutInflater)
+        _layoutBind = FragmentMyViewBinding.inflate(layoutInflater)
+
         val root: View = binding.root
-        binding.sqlName = item
-        getAllCity()
+        binding.text.text = item
         return root
     }
-    fun getAllCity(){
-//        val city = LitePal.findAll(ChinaTownLitePal::class.java)
-//        for(item in 0..100){
-//            Logger.e("name--------"+city[item].name.toString())
-//        }
-    }
+
+    //fun that print a random number
+
 
 
     override fun onDestroyView() {
         super.onDestroyView()
         _layoutBind = null
     }
-
 }

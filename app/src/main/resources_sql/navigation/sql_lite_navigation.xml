@@ -10,6 +10,10 @@ android:id="@+id/sql_lite_navigation">
     android:name="com.kijlee.android.demo.ui.sqllite.FgSqlLiteIndex"
     android:label="数据库主页"
     tools:layout="@layout/fg_sql_lite_index">
+    <argument
+        android:name="demo_name"
+        app:argType="string"
+        android:defaultValue=""/>
 
     <action
         android:id="@+id/to_green_dao"

@@ -2,13 +2,14 @@ package com.kijlee.android.demo
 
 import androidx.multidex.MultiDexApplication
 import com.beardedhen.androidbootstrap.TypefaceProvider
-
+import com.kijlee.android.demo.entity.objectbox.ObjectBox
+import com.kijlee.android.demo.entity.sql.room.ChinaTownRoomDatabase
 import com.kijlee.android.demo.net.Api.Companion.HEALTH_NAME
 import com.kijlee.android.demo.net.Api.Companion.HEALTH_URL_DOMAIN
-import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.qmuiteam.qmui.arch.QMUISwipeBackActivityManager
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 import org.litepal.LitePal
 
 
@@ -22,6 +23,7 @@ import org.litepal.LitePal
  * @Version:    1.0
  */
 class App: MultiDexApplication() {
+    val database: ChinaTownRoomDatabase by lazy { ChinaTownRoomDatabase.getDatabase(this) }
 
     override fun onCreate() {
         super.onCreate()
@@ -31,19 +33,30 @@ class App: MultiDexApplication() {
         TypefaceProvider.registerDefaultIconSets()
         // greendao数据库
 //        initDao()
-
         //日志打印
         Logger.addLogAdapter(AndroidLogAdapter())
         //切换不同的 BaseUrl
         RetrofitUrlManager.getInstance().setDebug(true)
         //将每个 BaseUrl 进行初始化,运行时可以随时改变 DOMAIN_NAME 对应的值,从而达到切换 BaseUrl 的效果
         RetrofitUrlManager.getInstance().putDomain(HEALTH_NAME, HEALTH_URL_DOMAIN)
+
 //        ObjectBox.init(this)
-        LitePal.initialize(this);
+
+//        LitePal.initialize(this);
+
     }
 
     // 具体类 需要makebuild生成
-
+//    fun initDao() {
+//        val helper = DaoMaster.DevOpenHelper(this, "china_town")
+//        val db = helper.writableDb
+//        daoSession = DaoMaster(db).newSession()
+//    }
+//
+//    private var daoSession: DaoSession? = null
+//    open fun getDaoSession(): DaoSession {
+//        return daoSession!!
+//    }
     companion object {
         const val TAG = "OBXSync"
     }

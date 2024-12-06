@@ -31,6 +31,30 @@
                 android:layout_margin="@dimen/bootstrap_alert_paddings"
                 app:showOutline="true"
                 android:text="扫描二维码" />
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/to_camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:roundedCorners="true"
+                android:onClick="@{onClickListener}"
+                app:bootstrapBrand="primary"
+                android:layout_margin="@dimen/bootstrap_alert_paddings"
+                app:showOutline="true"
+                android:text="相机调用" />
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/to_surface"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:roundedCorners="true"
+                android:onClick="@{onClickListener}"
+                app:bootstrapBrand="primary"
+                android:layout_margin="@dimen/bootstrap_alert_paddings"
+                app:showOutline="true"
+                android:text="预览surface" />
+            <ImageView
+                android:id="@+id/returned_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

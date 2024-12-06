@@ -260,6 +260,7 @@
                     android:onClick="@{onClickListener}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:roundedCorners="true"
                     android:layout_marginBottom="@dimen/micro_padding"
                     android:orientation="vertical">
 

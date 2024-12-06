@@ -177,6 +177,19 @@
             android:name="com.amap.api.v2.apikey"
             android:value="112dd0ff7373760a691811ec44628efc" />
         <service android:name="com.amap.api.location.APSService" />
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.kijlee.android.demo.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+
     </application>
 
     <uses-feature android:name="android.hardware.camera.any" />

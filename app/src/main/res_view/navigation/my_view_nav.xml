@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/fragment_my_view"
+    android:id="@+id/my_view_nav">
+
+    <fragment
+        android:id="@+id/fragment_my_view"
+        android:name="com.kijlee.android.demo.views.FragmentMyView"
+        android:label="自定义view"
+        tools:layout="@layout/layout_recycler_view">
+
+    </fragment>
+
+
+</navigation>

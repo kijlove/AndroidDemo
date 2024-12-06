@@ -40,29 +40,6 @@
                 app:bootstrapBrand="success"
                 app:roundedCorners="true" />
 
-            <com.kijlee.android.demo.views.UnitEditView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_padding"
-                app:unitText="单位"
-                app:bootstrapSize="xl"
-                app:bootstrapBrand="success"
-                app:roundedCorners="true"
-                android:text="一一一一一一一" />
-
-            <com.kijlee.android.demo.views.StarTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_padding"
-                app:endText=" *"
-                app:startText="* "
-                app:bootstrapSize="xl"
-                app:startColor="@color/qmui_config_color_red"
-                app:endColor="@color/purple_500"
-                app:bootstrapBrand="success"
-                app:roundedCorners="true"
-                app:location="both"
-                android:text="一一一一一一一" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

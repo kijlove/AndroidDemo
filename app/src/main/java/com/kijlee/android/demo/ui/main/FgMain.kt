@@ -69,11 +69,9 @@ class FgMain : Fragment() {
                 }
                 "SqlLite" -> {
                     Logger.e("SqlLite");
-                    view.findNavController().navigate(R.id.show_sql_lite,
-                        FgSqlLiteArgs.Builder().setDemoName(demoName).build().toBundle())
+                    view.findNavController().navigate(R.id.show_sql_lite, bundle)
                 }
                 "高德地图" -> {
-                    Logger.e("SqlLite");
                     view.findNavController().navigate(R.id.to_gaode,bundle)
                 }
                 "测试一个新闻列表" -> {
@@ -105,6 +103,12 @@ class FgMain : Fragment() {
                 }
                 "Compose"->{
                     startActivity(Intent(requireContext(), ComposeActivity::class.java))
+                }
+                "自定义View"->{
+                    view.findNavController().navigate(R.id.to_my_view_nav,bundle)
+                }
+                "录屏"->{
+                    view.findNavController().navigate(R.id.to_screen_record_nav,bundle)
                 }
             }
         }

@@ -14,6 +14,7 @@ import com.kijlee.android.demo.ui.main.FgMain
 import com.orhanobut.logger.Logger
 import org.litepal.LitePal
 
+
 /**
  * @ProjectName:    AndroidDemo
  * @Package:        com.kijlee.android.demo.ui.recycler

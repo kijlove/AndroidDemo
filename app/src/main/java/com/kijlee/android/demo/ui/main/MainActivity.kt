@@ -6,14 +6,14 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
-import com.kijlee.android.demo.databinding.ActivityMainBinding
-
 import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
+import com.kijlee.android.demo.databinding.ActivityMainBinding
 import com.orhanobut.logger.Logger
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog
 import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     //检查权限
@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             requestPermissions()
         }
+
 
     }
 

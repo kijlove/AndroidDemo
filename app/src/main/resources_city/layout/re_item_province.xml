@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+                name="province"
+                type="com.kijlee.android.demo.entity.ChinaTown" />
 
     </data>
 

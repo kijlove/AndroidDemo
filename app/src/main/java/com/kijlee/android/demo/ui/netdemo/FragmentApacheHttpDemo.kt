@@ -1,14 +1,17 @@
 package com.kijlee.android.demo.ui.netdemo
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.getSystemService
 import androidx.fragment.app.Fragment
+import com.kijlee.android.demo.App
 import com.kijlee.android.demo.databinding.FragmentNetDemoBinding
 import com.kijlee.android.demo.ui.main.FgMain
 import com.orhanobut.logger.Logger
-import org.apache.http.impl.client.DefaultHttpClient
+import org.apache.http.params.HttpParams
 
 
 /**
@@ -52,7 +55,8 @@ class FragmentApacheHttpDemo : Fragment() {
         return root
     }
 
-    fun initView() {}
+    fun initView() {
+    }
 
     fun onClick() {
         binding.apacheGet.setOnClickListener{
@@ -65,7 +69,6 @@ class FragmentApacheHttpDemo : Fragment() {
 
 
     fun apacheGetNet(){
-        var httpClient = DefaultHttpClient()
 
     }
 

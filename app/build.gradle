@@ -2,8 +2,8 @@ plugins {
     id 'com.android.application'
     id "org.jetbrains.kotlin.android"
     id "androidx.navigation.safeargs"
-    id "io.objectbox" // Apply last.
-    id 'com.google.devtools.ksp' version '1.9.22-1.0.17'
+    id 'com.google.devtools.ksp' version '1.9.0-1.0.11'
+    id 'io.objectbox' // Apply last
 }
 
 android {
@@ -47,6 +47,8 @@ android {
             res.srcDirs+='src/main/res_folder'//文件数据获取
             res.srcDirs+='src/main/resources_recycler'//recyclerview知识点
             res.srcDirs+='src/main/resources_camera'//相机
+            res.srcDirs+='src/main/res_view' //  自定义view
+            res.srcDirs+='src/main/resource_screen_record' //  录屏
         }
     }
 
@@ -68,7 +70,6 @@ android {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
 
-
     namespace 'com.kijlee.android.demo'
 }
 
@@ -77,25 +78,20 @@ android {
 dependencies {
 //    64k问题
     implementation "androidx.multidex:multidex:2.0.1"
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation 'com.github.houbb:pinyin:0.4.0'
     implementation 'com.google.zxing:core:3.5.2'
     implementation 'com.google.zxing:android-core:3.3.0'
     implementation 'androidx.compose.foundation:foundation-android:1.5.4'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-//    databinding 数据绑定
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 //    fragment导航
 
 
-    // Java language implementation
-    def nav_version = "2.5.3"
 
     // Java language implementation
     implementation "androidx.navigation:navigation-fragment:$nav_version"
@@ -137,10 +133,10 @@ dependencies {
     implementation("me.jessyan:retrofit-url-manager:1.2.5")
     // 打印日志
     implementation("com.orhanobut:logger:2.2.0")
-    // objectboxVersion
-    implementation("io.objectbox:objectbox-kotlin:3.4.0")
+
     // litepal数据库
     implementation 'org.litepal.guolindev:core:3.2.3'
+
 
     // rxbinding
     implementation 'com.jakewharton.rxbinding4:rxbinding-core:4.0.0'
@@ -243,8 +239,23 @@ dependencies {
 
 
     // Room libraries
+
     implementation "androidx.room:room-runtime:$room_version"
-//    ksp "androidx.room:room-compiler:$room_version"
+    ksp "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    // Lifecycle libraries
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+//    implementation("org.apache.httpcomponents:httpcore:4.4.16")// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime
+    implementation("org.apache.httpcomponents:httpmime:4.1.1")
+
+
+    // pdf文件预览
+    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+
+
+
 }
 
