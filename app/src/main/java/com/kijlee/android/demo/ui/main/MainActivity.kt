@@ -7,8 +7,9 @@ import android.os.Bundle
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import com.hjq.permissions.OnPermissionCallback
-import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
+import com.hjq.permissions.permission.PermissionLists
+import com.hjq.permissions.permission.base.IPermission
 import com.kijlee.android.demo.databinding.ActivityMainBinding
 import com.orhanobut.logger.Logger
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog
@@ -34,12 +35,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     //请求权限sign_norm_activity
     fun requestPermissions() {
         XXPermissions.with(this)
             // 申请单个权限
-            .permission(Permission.CAMERA)
+            .permission(PermissionLists.getCameraPermission())
             // 申请多个权限
 //            .permission(Permission.Group.CALENDAR)
             // 设置权限请求拦截器（局部设置）
@@ -48,22 +48,17 @@ class MainActivity : AppCompatActivity() {
             //.unchecked()
             .request(object : OnPermissionCallback {
 
-                override fun onGranted(permissions: MutableList<String>, allGranted: Boolean) {
+                override fun onResult(
+                    grantedList: List<IPermission?>,
+                    deniedList: List<IPermission?>
+                ) {
+                    val allGranted = deniedList.isEmpty()
                     if (!allGranted) {
                         Logger.e("获取部分权限成功，但部分权限未正常授予")
                         return
                     }
-                    Logger.e("获取录音和日历权限成功")
-                }
+                    Logger.e("获取相机")
 
-                override fun onDenied(permissions: MutableList<String>, doNotAskAgain: Boolean) {
-                    if (doNotAskAgain) {
-                        Logger.e("被永久拒绝授权，请手动授予录音和日历权限")
-                        // 如果是被永久拒绝就跳转到应用权限系统设置页面
-                        XXPermissions.startPermissionActivity(this@MainActivity, permissions)
-                    } else {
-                        Logger.e("获取录音和日历权限失败")
-                    }
                 }
             })
     }

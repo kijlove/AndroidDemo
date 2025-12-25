@@ -11,14 +11,36 @@
         android:label="QMUI"
         tools:layout="@layout/fragment_save_a">
         <action
-            android:id="@+id/action_fragment_save_a_to_fragment_save_b"
-            app:destination="@id/fragment_save_b" />
+            android:id="@+id/to_fragment_save_b"
+            app:destination="@id/fragment_save_b"/>
     </fragment>
     <fragment
         android:id="@+id/fragment_save_b"
         android:name="com.kijlee.android.demo.ui.fragmentsave.FragmentSaveB"
-        android:label="QMUI"
+        android:label="fragment_save_b"
         tools:layout="@layout/fragment_save_b">
+        <action
+            android:id="@+id/to_fragment_save_c"
+            app:destination="@id/fragment_save_c"/>
     </fragment>
+    <fragment
+        android:id="@+id/fragment_save_c"
+        android:name="com.kijlee.android.demo.ui.fragmentsave.FragmentSaveC"
+        android:label="fragment_save_c"
+        tools:layout="@layout/fragment_save_b">
 
+        <action
+                android:id="@+id/to_fragment_save_d"
+                app:destination="@id/fragment_save_d"/>
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_save_d"
+        android:name="com.kijlee.android.demo.ui.fragmentsave.FragmentSaveD"
+        android:label="fragment_save_d"
+        tools:layout="@layout/fragment_save_b">
+        <action
+            android:id="@+id/to_fragment_save_a"
+            app:destination="@id/fragment_save_a"
+            />
+    </fragment>
 </navigation>

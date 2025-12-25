@@ -59,7 +59,10 @@
         android:id="@+id/fg_awesome_text_view"
         android:name="com.kijlee.android.demo.ui.bootstrap.FgAwesomeTextViewExample"
         android:label="FgAwesomeTextViewExample"
-        tools:layout="@layout/example_awesome_text_view"></fragment>
+        tools:layout="@layout/example_awesome_text_view">
+        <action
+                android:id="@+id/to_test_demo"
+                app:destination="@id/test_demo" /></fragment>
     <fragment
         android:id="@+id/alert"
         android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapAlertExample"
@@ -120,4 +123,9 @@
         android:name="com.kijlee.android.demo.ui.bootstrap.FgBootstrapWellExample"
         android:label="FgWellExample"
         tools:layout="@layout/example_bootstrap_well"></fragment>
+    <fragment
+        android:id="@+id/test_demo"
+        android:name="com.kijlee.android.demo.ui.bootstrap.FragmentTest"
+        android:label="测试数据"
+        tools:layout="@layout/fragment_test"></fragment>
 </navigation>

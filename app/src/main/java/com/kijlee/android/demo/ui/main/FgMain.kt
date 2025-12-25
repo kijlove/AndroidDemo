@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.LayoutRecyclerViewBinding
 import com.kijlee.android.demo.ui.compose.ComposeActivity
+import com.kijlee.android.demo.ui.view.MyViewActivity
 import com.kijlee.android.demo.ui.workmanager.WorkManagerActivity
 import com.orhanobut.logger.Logger
 
@@ -105,7 +106,9 @@ class FgMain : Fragment() {
                     startActivity(Intent(requireContext(), ComposeActivity::class.java))
                 }
                 "自定义View"->{
-                    view.findNavController().navigate(R.id.to_my_view_nav,bundle)
+//                    view.findNavController().navigate(R.id.to_my_view_nav,bundle)
+                    val intent = Intent(requireContext(), MyViewActivity::class.java)
+                    startActivity(intent)
                 }
                 "录屏"->{
                     view.findNavController().navigate(R.id.to_screen_record_nav,bundle)

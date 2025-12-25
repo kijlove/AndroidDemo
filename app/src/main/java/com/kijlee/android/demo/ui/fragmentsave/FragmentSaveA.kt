@@ -61,7 +61,7 @@ class FragmentSaveA : Fragment() {
             binding.testText1.text = "随机数生成===" + Random.nextInt(1, 100).toString()
         }
         binding.toNextFragment.setOnClickListener {
-            findNavController().navigate(R.id.action_fragment_save_a_to_fragment_save_b)
+            findNavController().navigate(R.id.to_fragment_save_b)
         }
     }
 

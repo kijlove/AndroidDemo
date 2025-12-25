@@ -173,6 +173,17 @@
                 style="@style/wrapping_fa_text"
                 app:bootstrapBrand="info"
                 app:bootstrapText="{md_share} {md_whatshot}" />
+            <TextView
+                    android:id="@+id/change_text"
+                    style="@style/wrapping_fa_text"
+                    app:bootstrapBrand="success"
+                    android:text="修改数据" />
+
+            <TextView
+                    android:id="@+id/test_text"
+                    style="@style/wrapping_fa_text"
+                    app:bootstrapBrand="success"
+                    android:text="测试数据" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

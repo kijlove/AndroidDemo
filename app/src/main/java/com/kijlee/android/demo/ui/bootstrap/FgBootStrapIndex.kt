@@ -9,8 +9,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.beardedhen.androidbootstrap.BootstrapButton
+import com.hjq.permissions.OnPermissionCallback
+import com.hjq.permissions.XXPermissions
+import com.hjq.permissions.permission.PermissionLists
+import com.hjq.permissions.permission.base.IPermission
 import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.FgBootStrapIndexBinding
+import com.orhanobut.logger.Logger
 
 /**
  * @ProjectName:    AndroidDemo
@@ -107,8 +112,37 @@ class FgBootStrapIndex : Fragment() {
                 R.id.example_bootstrap_badge -> {
                     it.findNavController().navigate(R.id.example_bootstrap_badge, bundle)
                 }
+                R.id.request_qx -> {
+                    XXPermissions.with(this)
+                        // 申请单个权限
+                        .permission(PermissionLists.getCameraPermission())
+                        // 申请多个权限
+//            .permission(Permission.Group.CALENDAR)
+                        // 设置权限请求拦截器（局部设置）
+                        //.interceptor(new PermissionInterceptor())
+                        // 设置不触发错误检测机制（局部设置）
+                        //.unchecked()
+                        .request(object : OnPermissionCallback {
+
+                            override fun onResult(
+                                grantedList: List<IPermission?>,
+                                deniedList: List<IPermission?>
+                            ) {
+                                val allGranted = deniedList.isEmpty()
+                                if (!allGranted) {
+                                    Logger.e("获取部分权限成功，但部分权限未正常授予")
+                                    return
+                                }
+                                Logger.e("获取相机")
+
+                            }
+                        })
+
+                }
             }
         }
+
+
 
 
         return root

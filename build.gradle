@@ -4,8 +4,8 @@ buildscript {
     ext {
         work_version = "2.7.1"
         room_version = '2.5.0'
-        nav_version = "2.5.3"
-        lifecycle_version = '2.5.1'
+        nav_version = "2.9.6"
+        lifecycle_version = '2.9.0'
         objectboxVersion = "4.0.3" // For Groovy build scripts
         // val objectboxVersion by extra("4.0.3") // For KTS build scripts
     }
@@ -14,7 +14,7 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         // Android Gradle Plugin 4.1.0 or later supported
-        classpath("com.android.tools.build:gradle:8.1.0")
+        classpath('com.android.tools.build:gradle:8.6.0')
         classpath("io.objectbox:objectbox-gradle-plugin:$objectboxVersion")
 
     }
@@ -34,6 +34,6 @@ buildscript {
 
 }
 plugins {
-    id("com.android.application") version "8.2.0" apply false
+    id("com.android.application") version '8.2.0' apply false
     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.beardedhen.androidbootstrap.AwesomeTextView
 import com.beardedhen.androidbootstrap.BootstrapText
 import com.beardedhen.androidbootstrap.font.FontAwesome
@@ -69,6 +70,12 @@ class FgAwesomeTextViewExample : Fragment() {
                 }
 
             }
+        }
+        binding.changeText.setOnClickListener {
+            binding.testText.text = "西瓜瓜"
+        }
+        binding.testText.setOnClickListener {
+            it.findNavController().navigate(R.id.to_test_demo)
         }
         return root
     }

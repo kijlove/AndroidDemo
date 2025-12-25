@@ -127,6 +127,12 @@
                 android:onClick="@{onClickListener}"
                 android:text="BootstrapBadge"
                 />
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/request_qx"
+                style="@style/home_button"
+                android:onClick="@{onClickListener}"
+                android:text="请求权限"
+                />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

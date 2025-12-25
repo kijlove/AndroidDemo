@@ -11,6 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.kijlee.android.demo.ui.compose.ui.Index
+import com.kijlee.android.demo.ui.compose.ui.MainScreen
 import com.kijlee.android.demo.ui.compose.ui.SqlLiteIndex
 import com.kijlee.android.demo.ui.compose.ui.XzbIndex
 import com.kijlee.android.demo.ui.compose.ui.XzbLogon
@@ -72,7 +73,8 @@ fun NavGraph(window: Window) {
 
         composable(RouterPath.Index) {
             window.statusBarColor = MaterialTheme.colorScheme.background.toArgb()
-            Index()
+//            Index()
+            MainScreen()
         }
 
         composable(RouterPath.SqlLite) {

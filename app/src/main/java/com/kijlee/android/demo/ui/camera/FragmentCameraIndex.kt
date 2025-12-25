@@ -16,8 +16,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.beardedhen.androidbootstrap.BootstrapButton
+import com.hjq.permissions.OnPermissionCallback
+import com.hjq.permissions.XXPermissions
+import com.hjq.permissions.permission.PermissionLists
+import com.hjq.permissions.permission.base.IPermission
 import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.FragmentCameraIndexBinding
+import com.luck.picture.lib.PictureSelector
+import com.luck.picture.lib.config.PictureConfig
+import com.luck.picture.lib.config.PictureMimeType
 import com.orhanobut.logger.Logger
 import java.io.File
 
@@ -121,12 +128,63 @@ class FragmentCameraIndex : Fragment() {
                 R.id.to_surface->{
 
                 }
+                R.id.to_select_picture->{
+                    requestPermissions{
+
+                        PictureSelector.create(this)
+                            .openGallery(PictureMimeType.ofImage())
+                            .compress(true)
+                            .maxSelectNum(9)
+                            .minSelectNum(1)
+                            .imageSpanCount(4)
+                            .selectionMode(PictureConfig.MULTIPLE)
+                            .imageEngine(GlideEngine.createGlideEngine())
+                            .forResult(PictureConfig.CHOOSE_REQUEST)
+//                        PictureSelector.create(this)
+//                            .openCamera(PictureMimeType.ofImage())
+//                            .compress(true)
+//                            .enableCrop(true)
+//                            .showCropFrame(true)
+//                            .showCropGrid(true)
+//                            .scaleEnabled(true)
+//                            .isDragFrame(true)
+//                            .imageEngine(GlideEngine.createGlideEngine())
+//                            .forResult(PictureConfig.CHOOSE_REQUEST)
+
+                    }
+                }
             }
         }
 
         return root
     }
 
+    //请求权限sign_norm_activity
+    fun requestPermissions( callBack:()->Unit) {
+        XXPermissions.with(this)
+            // 申请单个权限
+            .permission(PermissionLists.getReadMediaAudioPermission())
+            .permission(PermissionLists.getReadMediaImagesPermission())
+            .permission(PermissionLists.getReadMediaVideoPermission())
+            .permission(PermissionLists.getCameraPermission())
+            .request(object : OnPermissionCallback {
+
+                override fun onResult(
+                    grantedList: List<IPermission?>,
+                    deniedList: List<IPermission?>
+                ) {
+                    val allGranted = deniedList.isEmpty()
+                    if (!allGranted) {
+                        Logger.e("获取部分权限成功，但部分权限未正常授予")
+                        return
+                    } else{
+                        Logger.e("获取权限成功")
+                        callBack()
+                    }
+
+                }
+            })
+    }
 
     companion object {
         /**

@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="22" />
+
+    <uses-feature android:name="android.hardware.camera.any" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" /> <!-- 高德地图权限配置 -->
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.screen.landscape" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 声明后台定位权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 高德地图权限配置 -->
+    <!-- Required to run keep-alive service when targeting API 28 or higher -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- unavailable in API 23 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 读取音频权限（Android 13.0 新增的权限）-->
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <!-- 读取图片权限（Android 13.0 新增的权限）-->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <!-- 读取视频权限（Android 13.0 新增的权限）-->
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
 
     <application
         android:name=".App"
@@ -12,24 +58,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidDemo"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+        tools:targetApi="31" >
+
         <activity
             android:name=".ui.compose.ComposeActivity"
-            android:exported="false" />
-        <!-- 告知 XXPermissions 当前项目已经适配了分区存储特性 -->
+            android:exported="false" /> <!-- 告知 XXPermissions 当前项目已经适配了分区存储特性 -->
         <activity
             android:name=".ui.workmanager.WorkManagerActivity"
             android:exported="false"
             android:label="@string/title_activity_work_manager"
-            android:theme="@style/Theme.AndroidDemo">
+            android:theme="@style/Theme.AndroidDemo" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".ui.main.MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,7 +88,7 @@
             android:screenOrientation="sensorLandscape"
             android:stateNotNeeded="true"
             android:theme="@style/CaptureTheme"
-            android:windowSoftInputMode="stateAlwaysHidden">
+            android:windowSoftInputMode="stateAlwaysHidden" >
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.SCAN" />
 
@@ -102,11 +147,10 @@
             android:name=".ui.camera.PreferencesActivity"
             android:label="@string/preferences_name"
             android:stateNotNeeded="true" />
-
         <activity
             android:name=".ui.camera.encode.EncodeActivity"
             android:exported="false"
-            android:stateNotNeeded="true">
+            android:stateNotNeeded="true" >
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.ENCODE" />
 
@@ -129,13 +173,12 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.camera.book.SearchBookContentsActivity"
             android:exported="false"
             android:label="@string/sbc_name"
             android:screenOrientation="sensorLandscape"
-            android:stateNotNeeded="true">
+            android:stateNotNeeded="true" >
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.SEARCH_BOOK_CONTENTS" />
 
@@ -146,7 +189,7 @@
             android:name=".ui.camera.share.ShareActivity"
             android:exported="false"
             android:screenOrientation="user"
-            android:stateNotNeeded="true">
+            android:stateNotNeeded="true" >
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.SHARE" />
 
@@ -170,66 +213,28 @@
             android:label="@string/menu_help"
             android:screenOrientation="user"
             android:stateNotNeeded="true" />
+        <activity
+            android:name=".ui.view.MyViewActivity"
+            android:label="@string/my_view_activity" />
+
         <meta-data
             android:name="ScopedStorage"
             android:value="true" />
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="112dd0ff7373760a691811ec44628efc" />
-        <service android:name="com.amap.api.location.APSService" />
 
+        <service android:name="com.amap.api.location.APSService" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.kijlee.android.demo.provider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-
-
     </application>
-
-    <uses-feature android:name="android.hardware.camera.any" />
-    <uses-feature
-        android:name="android.hardware.camera.autofocus"
-        android:required="false" /> <!-- 高德地图权限配置 -->
-    <uses-feature
-        android:name="android.hardware.camera.flash"
-        android:required="false" />
-    <uses-feature android:name="android.hardware.screen.landscape" />
-    <uses-feature
-        android:name="android.hardware.wifi"
-        android:required="false" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 声明后台定位权限 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 高德地图权限配置 -->
-    <!-- Required to run keep-alive service when targeting API 28 or higher -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- unavailable in API 23 -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
-
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
-    <uses-sdk
-        android:minSdkVersion="19"
-        android:targetSdkVersion="22" />
 
 </manifest>

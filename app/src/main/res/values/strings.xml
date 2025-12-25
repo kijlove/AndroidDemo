@@ -45,6 +45,7 @@
     </string>
 
     <string name="app_picker_name">应用</string>
+    <string name="my_view_activity">自定义View</string>
     <string name="bookmark_picker_name">书签</string>
     <string name="button_add_calendar">添加至日程表</string>
     <string name="button_add_contact">添加联系人</string>
@@ -93,7 +94,7 @@
     <string name="msg_default_format">格式</string>
     <string name="msg_default_meta">元数据</string>
     <string name="msg_default_mms_subject">Hi</string>
-    <string name="msg_default_status">请将条码置于取景框内扫描。  </string>
+    <string name="msg_default_status">请将条码置于取景框内扫描。</string>
     <string name="msg_default_time">时间</string>
     <string name="msg_default_type">类型</string>
     <string name="msg_encode_contents_failed">无法生成条码。</string>
@@ -110,7 +111,8 @@
     <string name="msg_sbc_results">结果</string>
     <string name="msg_sbc_searching_book">搜索图书…</string>
     <string name="msg_sbc_snippet_unavailable">摘录不可用</string>
-    <string name="msg_share_explanation">您可以通过在自己的手机上显示条码，并使用其它手机扫描此条码的方式进行分享</string>
+    <string name="msg_share_explanation">您可以通过在自己的手机上显示条码，并使用其它手机扫描此条码的方式进行分享
+    </string>
     <string name="msg_share_text">或键入一些文字</string>
     <string name="msg_sure">确定吗？</string>
     <string name="msg_unmount_usb">抱歉，无法访问 SD 卡。</string>
@@ -164,7 +166,7 @@
     <string name="result_sms">找到短信号码</string>
     <string name="result_tel">找到电话号码</string>
     <string name="result_text">找到纯文本</string>
-    <string name="result_uri">找到 URL </string>
+    <string name="result_uri">找到 URL</string>
     <string name="result_wifi">找到 Wi-Fi 配置</string>
     <string name="sbc_name">Google 图书搜索</string>
     <string name="wifi_changing_network">连接到 Wi-Fi \u2026</string>

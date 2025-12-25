@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.ImageView
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.kijlee.android.demo.R
 import com.kijlee.android.demo.databinding.FgQmuiIndexBinding
@@ -45,6 +46,7 @@ class FgQmuiIndex : Fragment() {
     ): View {
 
         _layoutBind = FgQmuiIndexBinding.inflate(layoutInflater)
+//        _layoutBind =  DataBindingUtil.inflate(inflater, R.layout.fg_qmui_index, container, false)
 
         val root: View = binding.root
 
