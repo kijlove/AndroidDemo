@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" >
 
-    <uses-sdk
-        android:minSdkVersion="19"
-        android:targetSdkVersion="22" />
+
 
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-feature
@@ -47,6 +45,8 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <!-- 读取视频权限（Android 13.0 新增的权限）-->
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <!--    开机自启动权限-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".App"
@@ -75,12 +75,19 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
+
+
         </activity>
+
         <activity
             android:name=".ui.camera.CaptureActivity"
             android:clearTaskOnLaunch="true"
@@ -143,6 +150,7 @@
                     android:scheme="zxing" />
             </intent-filter>
         </activity> <!-- 定位需要的服务 使用2.0的定位需要加上这个 -->
+
         <activity
             android:name=".ui.camera.PreferencesActivity"
             android:label="@string/preferences_name"
@@ -235,6 +243,33 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+
+        <!--        开机启动-->
+
+        <receiver
+            android:name=".BootReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".MyDeviceAdminReceiver"
+            android:exported="true"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+
     </application>
 
 </manifest>

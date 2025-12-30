@@ -37,7 +37,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kijlee.android.demo.ui.compose.ui.theme.LoginAppTheme
 import kotlinx.coroutines.launch
 
 /**
@@ -259,3 +261,14 @@ fun ContactItem(contact: Contact) {
         }
     }
 }
+
+
+
+@Preview(showBackground = true)
+@Composable
+fun ContactsScreenPreview() {
+    LoginAppTheme {
+        ContactsScreen()
+    }
+}
+

@@ -1,5 +1,4 @@
-package com.kijlee.android.demo.ui.compose.ui
-
+package com.kijlee.android.demo.ui.compose.ui.work
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -136,4 +135,3 @@ fun TeamMemberItem(member: TeamMember) {
         }
     }
 }
-
